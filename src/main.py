@@ -28,21 +28,21 @@ def main():
 
         # Initialize main window
         app = ctk.CTk()
-        app.title("Quote of the Day")
+        app.title("quote of the day")
         
         # Keep window on top but allow normal controls
         # app.attributes('-topmost', True)
         
         # Set initial size and position
         window_width = 350
-        window_height = 200
+        window_height = 225
         screen_width = app.winfo_screenwidth()
         screen_height = app.winfo_screenheight()
         x_position = (screen_width - window_width) // 2
         y_position = (screen_height - window_height) // 2
         app.geometry(f"{window_width}x{window_height}+{x_position}+{y_position}")
 
-        # Set minimum size
+        # Set app size
         app.minsize(300, 150)
         app.maxsize(400, 400)  # Adjust these numbers as needed
 

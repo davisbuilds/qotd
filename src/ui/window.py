@@ -33,10 +33,10 @@ class QuoteWidget(ctk.CTkFrame):
         # App title
         self.title_label = ctk.CTkLabel(
             self,
-            text="Quote of the Day",
+            text="quote of the day",
             font=("Arial", 16, "bold")
         )
-        self.title_label.pack(pady=(15, 0))
+        self.title_label.pack(pady=(1, 0))
 
         # Subtitle
         self.subtitle_label = ctk.CTkLabel(
@@ -45,7 +45,7 @@ class QuoteWidget(ctk.CTkFrame):
             font=("Arial", 10),
             text_color="gray60"  # Subtle gray color
         )
-        self.subtitle_label.pack(pady=(0, 15))
+        self.subtitle_label.pack(pady=(0, 10))
 
         # Quote text
         self.quote_label = ctk.CTkLabel(

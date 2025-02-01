@@ -15,8 +15,8 @@ A simple desktop widget that displays inspiring quotes. Quotes refresh automatic
 1. Clone this repository:
 
 ```bash
-git clone https://github.com/[your-username]/qotd_v0.1.git
-cd qotd_v0.1
+git clone https://github.com/[your-username]/qotd_v01.git
+cd qotd_v01
 ```
 
 2. Create and activate a virtual environment:
@@ -44,7 +44,6 @@ You can:
 
 - Click and drag the window to move it
 - Click the refresh button (↻) to get a new quote
-- Use the minimize/maximize/close buttons in the title bar
 - Press Escape to close the widget
 
 ## Development
