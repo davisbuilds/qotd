@@ -31,7 +31,7 @@ def main():
         app.title("Quote of the Day")
         
         # Keep window on top but allow normal controls
-        app.attributes('-topmost', True)
+        # app.attributes('-topmost', True)
         
         # Set initial size and position
         window_width = 350
