@@ -23,7 +23,7 @@ def main():
         logging.info("Starting Quote of the Day application")
 
         # Configure appearance
-        ctk.set_appearance_mode("light")  # or "dark"
+        ctk.set_appearance_mode("dark")  # or "light"
         ctk.set_default_color_theme("blue")
 
         # Initialize main window
