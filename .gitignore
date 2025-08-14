@@ -1,19 +1,81 @@
 ﻿# Virtual Environment
 venv/
+.venv/
+env/
+ENV/
+env.bak/
+venv.bak/
 
 # Python cache files
 __pycache__/
 *.py[cod]
+*$py.class
+*.so
+
+# Python build artifacts
+build/
+dist/
+*.egg-info/
+.eggs/
+*.egg
+MANIFEST
+develop-eggs/
+downloads/
+eggs/
+lib/
+lib64/
+parts/
+sdist/
+var/
+wheels/
+.installed.cfg
+
+# uv
+.uv
 
 # VS Code settings
 .vscode/
 
+# Other IDEs
+.idea/
+*.swp
+*.swo
+*~
+
 # Environment variables
 .env
+.env.local
+.env.development.local
+.env.test.local
+.env.production.local
 
 # Log files
 *.log
 
+# Testing
+.tox/
+.coverage
+.pytest_cache/
+.cache
+htmlcov/
+.hypothesis/
+
+# Type checking
+.mypy_cache/
+.dmypy.json
+dmypy.json
+
+# Jupyter Notebook
+.ipynb_checkpoints
+
+# pyenv
+.python-version
+
 # System files
 .DS_Store
+.DS_Store?
+._*
+.Spotlight-V100
+.Trashes
 Thumbs.db
+ehthumbs.db

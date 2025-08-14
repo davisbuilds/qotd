@@ -5,39 +5,46 @@ A simple desktop widget that displays inspiring quotes. Quotes refresh automatic
 ## Features
 
 - Draggable interface
-- Auto-refresh quotes every 5 minutes
+- Quotes auto-refresh every 5 minutes
 - Manual refresh button
 - Minimalist design
-- Supports both light and dark modes
+- Dark mode by default
+
+## Prerequisites
+
+- Python 3.8 or higher
+- [uv](https://docs.astral.sh/uv/) package manager
 
 ## Installation
 
 1. Clone this repository:
 
 ```bash
-git clone https://github.com/[your-username]/qotd_v01.git
-cd qotd_v01
+git clone https://github.com/[your-username]/qotd.git
+cd qotd
 ```
 
-2. Create and activate a virtual environment:
-
+2. Install dependencies using uv:
 ```bash
-python -m venv venv
-.\venv\Scripts\activate
+uv sync
 ```
 
-3. Install required packages:
-
-```bash
-pip install -r requirements.txt
-```
+This will automatically:
+- Create a virtual environment
+- Install all dependencies
+- Install the project in development mode
 
 ## Running the Widget
 
 To run the widget:
 
 ```bash
-python -m src.main
+# Using uv run (recommended)
+uv run quote-of-day
+
+# Or activate the virtual environment first
+uv shell
+quote-of-day
 ```
 
 You can:
@@ -45,6 +52,25 @@ You can:
 - Click and drag the window to move it
 - Click the refresh button (↻) to get a new quote
 - Press Escape to close the widget
+
+### Project Structure
+
+```
+quote-of-day/
+├── src/
+│   ├── __init__.py
+│   ├── main.py
+│   ├── quote_manager.py
+│   ├── ui/
+│   │   ├── __init__.py
+│   │   └── window.py
+|   └── data/
+│       └── quotes.csv
+├── tests/
+│   └── test_quote_manager.py
+├── pyproject.toml
+└── README.md
+```
 
 ## Development
 

@@ -1,0 +1,17 @@
+[project]
+name = "qotd"
+version = "0.1.0"
+description = "A simple desktop widget showing inspirational quotes"
+requires-python = ">=3.8"
+dependencies = [
+    "customtkinter>=5.2.2",
+    "pillow>=10.2.0",
+]
+
+[project.scripts]
+quote-of-day = "src.main:main"
+qotd = "src.main:main"
+
+[build-system]
+requires = ["setuptools>=45", "wheel"]
+build-backend = "setuptools.build_meta"
