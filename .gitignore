@@ -79,3 +79,10 @@ dmypy.json
 .Trashes
 Thumbs.db
 ehthumbs.db
+
+# Next.js
+.next/
+out/
+node_modules/
+*.tsbuildinfo
+next-env.d.ts
