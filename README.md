@@ -86,9 +86,11 @@ qotd/
 
 - **Framework**: Next.js 14 (App Router)
 - **Language**: TypeScript
-- **Styling**: Tailwind CSS
+- **UI Components**: shadcn/ui - Beautiful, accessible components
+- **Styling**: Tailwind CSS with CSS Variables
+- **Icons**: Lucide React
 - **Theme Management**: next-themes
-- **Animations**: CSS transitions & keyframes
+- **Animations**: CSS transitions & keyframes with tailwindcss-animate
 - **API**: Next.js API Routes
 - **Deployment Ready**: Vercel, Netlify, or any Node.js host
 
