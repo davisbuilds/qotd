@@ -22,7 +22,7 @@ MANIFEST
 develop-eggs/
 downloads/
 eggs/
-lib/
+old_python_app/lib/
 lib64/
 parts/
 sdist/
