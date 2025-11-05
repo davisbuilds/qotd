@@ -5,6 +5,9 @@ import { Quote } from '@/types/quote'
 import QuoteDisplay from '@/components/QuoteDisplay'
 import RefreshButton from '@/components/RefreshButton'
 import ThemeToggle from '@/components/ThemeToggle'
+import { Card, CardContent, CardDescription, CardFooter, CardHeader, CardTitle } from '@/components/ui/card'
+import { Button } from '@/components/ui/button'
+import { Sparkles } from 'lucide-react'
 
 export default function Home() {
   const [quote, setQuote] = useState<Quote | null>(null)
@@ -52,46 +55,44 @@ export default function Home() {
 
   return (
     <main className="min-h-screen gradient-bg-light dark:gradient-bg-dark flex items-center justify-center p-4">
-      <div className="absolute top-4 right-4">
+      <div className="absolute top-4 right-4 z-10">
         <ThemeToggle />
       </div>
 
       <div className="w-full max-w-2xl">
-        <div className="glass rounded-3xl shadow-2xl p-8 md:p-12">
-          {/* Header */}
-          <div className="text-center mb-8">
-            <h1 className="text-3xl md:text-4xl font-bold text-white mb-2">
-              ✨ quote of the day ✨
-            </h1>
-            <p className="text-sm md:text-base text-white/70">
+        <Card className="glass-card border-0 shadow-2xl">
+          <CardHeader className="text-center pb-4">
+            <CardTitle className="text-3xl md:text-4xl font-bold flex items-center justify-center gap-2">
+              <Sparkles className="h-6 w-6" />
+              quote of the day
+              <Sparkles className="h-6 w-6" />
+            </CardTitle>
+            <CardDescription className="text-base">
               by Davis & Claude
-            </p>
-          </div>
+            </CardDescription>
+          </CardHeader>
 
-          {/* Quote Display */}
-          {isLoading && !quote ? (
-            <div className="text-center py-12">
-              <div className="animate-pulse text-white/80">Loading...</div>
-            </div>
-          ) : error ? (
-            <div className="text-center py-12">
-              <div className="text-red-400">{error}</div>
-              <button
-                onClick={fetchQuote}
-                className="mt-4 px-4 py-2 bg-white/20 hover:bg-white/30 text-white rounded-lg transition-colors"
-              >
-                Try Again
-              </button>
-            </div>
-          ) : quote ? (
-            <QuoteDisplay quote={quote} isTransitioning={isTransitioning} />
-          ) : null}
+          <CardContent className="min-h-[200px] flex items-center justify-center">
+            {isLoading && !quote ? (
+              <div className="text-center py-12">
+                <div className="animate-pulse text-muted-foreground">Loading...</div>
+              </div>
+            ) : error ? (
+              <div className="text-center py-12 space-y-4">
+                <div className="text-destructive">{error}</div>
+                <Button onClick={fetchQuote} variant="secondary">
+                  Try Again
+                </Button>
+              </div>
+            ) : quote ? (
+              <QuoteDisplay quote={quote} isTransitioning={isTransitioning} />
+            ) : null}
+          </CardContent>
 
-          {/* Refresh Button */}
-          <div className="mt-8 flex justify-center">
+          <CardFooter className="flex justify-center pt-2">
             <RefreshButton onClick={fetchQuote} isLoading={isTransitioning} />
-          </div>
-        </div>
+          </CardFooter>
+        </Card>
       </div>
     </main>
   )
