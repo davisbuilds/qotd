@@ -4,81 +4,117 @@ This file provides guidance to Claude Code (claude.ai/code) when working with co
 
 ## Running and Development Commands
 
-### Running the Application
+### Running the Application (Next.js Web App)
 
 ```bash
-# Primary method using uv (recommended)
-uv run quote-of-day
+# Development server
+npm run dev
 
-# Alternative command
-uv run qotd
+# Production build and start
+npm run build
+npm start
 
-# If virtual environment is activated
-quote-of-day
+# Linting
+npm run lint
 ```
 
-### Testing
-```bash
-# Run tests using unittest
-python -m unittest tests/test_quote_manager.py
+### Legacy Python App Commands (Archived)
 
-# Run all tests
+The original Python desktop widget is archived in `old_python_app/`. To work with it:
+
+```bash
+# Navigate to archived app
+cd old_python_app
+
+# Setup Python environment
+uv sync
+uv shell
+
+# Run the Python desktop widget
+uv run quote-of-day
+uv run qotd
+
+# Run Python tests
+python -m unittest tests/test_quote_manager.py
 python -m unittest discover tests/
 ```
 
 ### Environment Setup
-```bash
-# Install dependencies and setup environment
-uv sync
 
-# Activate virtual environment
-uv shell
+```bash
+# Install Node.js dependencies
+npm install
+
+# For Python app development (archived)
+cd old_python_app && uv sync
 ```
 
 ## Architecture Overview
 
-### Core Components
+This is a **Next.js 14 web application** that displays inspirational quotes with modern UI and smooth animations. The original Python CustomTkinter desktop widget has been completely refactored into this web app.
 
-**Application Entry Point (`src/main.py`)**
-- Configures CustomTkinter appearance (dark mode by default)
-- Sets up logging to both file (`quote_widget.log`) and console
-- Creates the main CTk window with specific dimensions (350x225px, centered)
-- Handles window lifecycle and ESC key binding for exit
+### Core Next.js App Structure
 
-**Quote Management (`src/quote_manager.py`)**
-- Loads quotes from CSV file with "quote" and "author" columns
-- Provides random quote selection with error handling for missing/malformed files
-- Implements auto-refresh timer (5-minute intervals by default)
-- Thread-safe timer management with proper cleanup
+**Main Page (`app/page.tsx`)**
+- Client-side React component managing quote state and auto-refresh
+- Implements 5-minute auto-refresh interval (300,000ms)
+- Handles loading states, error handling, and smooth transitions
+- Integrates QuoteDisplay, RefreshButton, and ThemeToggle components
 
-**UI Layer (`src/ui/window.py`)**
-- CustomTkinter-based widget with draggable interface
-- Displays quotes with proper text wrapping (300px width)
-- Manual refresh button (↻) for immediate quote updates
-- Responsive layout with title, subtitle, quote text, author, and refresh button
+**API Route (`app/api/quotes/random/route.ts`)**
+- Next.js API route returning random quotes from JSON data
+- Loads quotes from `data/quotes.json` (100+ inspirational quotes)
+- Provides error handling for missing/corrupted data
+- Returns JSON response with quote/author structure
 
-### Data Structure
+**Quote Display System (`components/QuoteDisplay.tsx`)**
+- Animated quote presentation with fade transitions
+- Typography scaling for mobile/desktop responsiveness
+- Blockquote styling with proper semantic HTML
 
-- Quotes stored in CSV format at `data/quotes.csv`
-- Each row requires "quote" and "author" fields
-- Quote manager handles file not found, permission errors, and format validation
+**Theme System (`components/ThemeProvider.tsx`, `components/ThemeToggle.tsx`)**
+- Dark/light mode with localStorage persistence
+- Uses next-themes for seamless theme switching
+- Integrates with Tailwind CSS custom properties
 
-### Dependencies
+### Data Management
 
-- `customtkinter>=5.2.2` for modern UI components
-- `pillow>=10.2.0` for image processing support
-- Python 3.8+ required
+- **Quote Source**: `data/quotes.json` contains 100+ curated quotes
+- **Quote Type**: TypeScript interface defined in `types/quote.ts`
+- **Data Structure**: Each quote has `quote` and `author` fields
+- **API Access**: RESTful endpoint at `/api/quotes/random`
 
-### Testing Strategy
+### Technology Stack
 
-- Unit tests for QuoteManager using temporary CSV files
-- Tests cover normal operation, error handling, and timer functionality
-- Mock file scenarios for error condition testing
+- **Framework**: Next.js 14 with App Router and TypeScript
+- **UI**: shadcn/ui components built on Radix UI primitives
+- **Styling**: Tailwind CSS with custom glassmorphism effects
+- **State**: React hooks for client-side state management
+- **Deployment**: Vercel-optimized with zero configuration
 
-## Key Implementation Notes
+### Key Features Implementation
 
-- Application defaults to dark mode via `ctk.set_appearance_mode("dark")`
-- Window is resizable (min: 300x150, max: 400x400) but starts at 350x225
-- Timer automatically restarts after each quote refresh
-- Logging captures both application events and errors to `quote_widget.log`
-- Proper resource cleanup on window close (timer termination)
+- **Auto-refresh**: 5-minute interval using `setInterval` in `useEffect`
+- **Manual Refresh**: Button triggers immediate new quote fetch with animations
+- **Smooth Transitions**: 500ms fade animations coordinated between components
+- **Theme Persistence**: localStorage integration via next-themes
+- **Responsive Design**: Mobile-first approach with Tailwind breakpoints
+- **Error Handling**: Graceful fallbacks for API failures and loading states
+
+## Migration Notes
+
+The codebase was migrated from a Python CustomTkinter desktop widget to a Next.js web application:
+
+- **Legacy Code**: Original Python app preserved in `old_python_app/`
+- **Data Migration**: CSV quotes converted to JSON format
+- **UI Modernization**: CustomTkinter → React + Tailwind CSS
+- **Platform Expansion**: Desktop-only → Cross-platform web app
+- **Architecture**: Local Python → Next.js API routes + client components
+
+## Development Workflow
+
+- Use `npm run dev` for development with hot reload
+- Run `npm run lint` before committing changes
+- Quote data modifications require editing `data/quotes.json`
+- Component changes automatically reflected due to React Fast Refresh
+- Build verification with `npm run build` before deployment
