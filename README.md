@@ -1,87 +1,171 @@
-# Quote of the Day Widget
+# ✨ Quote of the Day - Next.js Web App
 
-A simple desktop widget that displays inspiring quotes. Quotes refresh automatically every 5 minutes, or you can manually refresh them using the refresh button.
+A beautiful, modern web application that displays inspiring quotes. Features smooth animations, dark/light mode, auto-refresh, and a stunning glassmorphism design.
 
-## Features
+**By Davis & Claude** 🚀
 
-- Draggable interface
-- Quotes auto-refresh every 5 minutes
-- Manual refresh button
-- Minimalist design
-- Dark mode by default
+## 🌟 Features
 
-## Prerequisites
+- ✨ **Beautiful Modern UI** - Glassmorphism design with animated gradient backgrounds
+- 🌓 **Dark/Light Mode** - Toggle between themes with smooth transitions and localStorage persistence
+- 🔄 **Auto-Refresh** - Quotes automatically refresh every 5 minutes
+- 🎯 **Manual Refresh** - Click the refresh button for instant new quotes with smooth animations
+- 📱 **Fully Responsive** - Optimized for mobile, tablet, and desktop
+- ⚡ **Lightning Fast** - Built with Next.js 14 App Router and TypeScript
+- 🎨 **Smooth Animations** - Fade-in/fade-out transitions for quote changes
+- 💯 **100 Inspirational Quotes** - Curated collection from great thinkers and leaders
 
-- Python 3.8 or higher
-- [uv](https://docs.astral.sh/uv/) package manager
+## 🚀 Quick Start
 
-## Installation
+### Prerequisites
 
-1. Clone this repository:
+- Node.js 18.17 or later
+- npm or yarn
+
+### Installation
+
+1. Clone the repository:
 
 ```bash
-git clone https://github.com/[your-username]/qotd.git
+git clone https://github.com/davisbuilds/qotd.git
 cd qotd
 ```
 
-2. Install dependencies using uv:
-```bash
-uv sync
-```
-
-This will automatically:
-- Create a virtual environment
-- Install all dependencies
-- Install the project in development mode
-
-## Running the Widget
-
-To run the widget:
+2. Install dependencies:
 
 ```bash
-# Using uv run (recommended)
-uv run quote-of-day
-
-# Or activate the virtual environment first
-uv shell
-quote-of-day
+npm install
+# or
+yarn install
 ```
 
-You can:
+3. Run the development server:
 
-- Click and drag the window to move it
-- Click the refresh button (↻) to get a new quote
-- Press Escape to close the widget
-
-### Project Structure
-
-```
-quote-of-day/
-├── src/
-│   ├── __init__.py
-│   ├── main.py
-│   ├── quote_manager.py
-│   ├── ui/
-│   │   ├── __init__.py
-│   │   └── window.py
-|   └── data/
-│       └── quotes.csv
-├── tests/
-│   └── test_quote_manager.py
-├── pyproject.toml
-└── README.md
+```bash
+npm run dev
+# or
+yarn dev
 ```
 
-## Development
+4. Open [http://localhost:3000](http://localhost:3000) in your browser
 
-This project uses:
+## 🏗️ Build for Production
 
-- customtkinter for the UI
-- Python's built-in csv module for quote management
-- logging for error tracking
+```bash
+npm run build
+npm start
+```
 
-## License
+## 📁 Project Structure
 
-MIT License
+```
+qotd/
+├── app/
+│   ├── api/
+│   │   └── quotes/
+│   │       └── random/
+│   │           └── route.ts          # API endpoint for random quotes
+│   ├── globals.css                   # Global styles & animations
+│   ├── layout.tsx                    # Root layout with ThemeProvider
+│   └── page.tsx                      # Main page component
+├── components/
+│   ├── QuoteDisplay.tsx              # Quote display with animations
+│   ├── RefreshButton.tsx             # Animated refresh button
+│   ├── ThemeProvider.tsx             # Theme context provider
+│   └── ThemeToggle.tsx               # Dark/light mode toggle
+├── data/
+│   ├── quotes.csv                    # Original CSV data
+│   └── quotes.json                   # Converted JSON data (100 quotes)
+├── types/
+│   └── quote.ts                      # TypeScript type definitions
+├── old_python_app/                   # Archived Python desktop widget
+└── package.json
+```
 
-Copyright (c) 2025 Davis
+## 🎨 Technology Stack
+
+- **Framework**: Next.js 14 (App Router)
+- **Language**: TypeScript
+- **UI Components**: shadcn/ui - Beautiful, accessible components
+- **Styling**: Tailwind CSS with CSS Variables
+- **Icons**: Lucide React
+- **Theme Management**: next-themes
+- **Animations**: CSS transitions & keyframes with tailwindcss-animate
+- **API**: Next.js API Routes
+- **Deployment Ready**: Vercel, Netlify, or any Node.js host
+
+## 🌐 Deploy to Vercel
+
+[![Deploy with Vercel](https://vercel.com/button)](https://vercel.com/new/clone?repository-url=https://github.com/davisbuilds/qotd)
+
+1. Click the button above or go to [Vercel](https://vercel.com)
+2. Import your repository
+3. Deploy (zero configuration needed!)
+
+## 🎯 API Endpoints
+
+### Get Random Quote
+
+```
+GET /api/quotes/random
+```
+
+**Response:**
+```json
+{
+  "quote": "Actions follow being.",
+  "author": "Aristotle"
+}
+```
+
+## 🎨 Design Highlights
+
+- **Glassmorphism Effect**: Frosted glass card with backdrop blur
+- **Animated Gradients**: Dynamic background that shifts colors
+- **Smooth Transitions**: All state changes animated for polish
+- **Accessible**: Proper ARIA labels and semantic HTML
+- **Responsive Typography**: Scales beautifully from mobile to desktop
+
+## 📝 Adding More Quotes
+
+To add more quotes, edit `data/quotes.json`:
+
+```json
+{
+  "quote": "Your inspirational quote here",
+  "author": "Author Name"
+}
+```
+
+Then rebuild the application.
+
+## 🐛 Development Notes
+
+- Auto-refresh interval: 5 minutes (300,000ms) - configurable in `app/page.tsx`
+- Theme preference persists in localStorage
+- API route caches quotes for performance
+- Smooth fade transitions: 500ms duration
+
+## 📜 License
+
+MIT License - Copyright (c) 2025 Davis
+
+## 🙏 Credits
+
+Built with ❤️ by **Davis & Claude**
+
+Inspired by great thinkers, entrepreneurs, and leaders featured in the quotes collection.
+
+---
+
+### 🔄 Migration from Python Desktop Widget
+
+This project was originally a Python CustomTkinter desktop widget and has been completely refactored into a modern Next.js web application. The original Python code is archived in `old_python_app/` for reference.
+
+**Why the refactor?**
+- ✅ Cross-platform (works everywhere - desktop, mobile, tablet)
+- ✅ No installation required (just open in browser)
+- ✅ Easy to share (just send a link)
+- ✅ Modern tech stack with better tooling
+- ✅ Easier to deploy and maintain
+- ✅ More beautiful and performant UI
