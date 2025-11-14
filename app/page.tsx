@@ -47,8 +47,8 @@ export default function Home() {
     // Initial quote fetch
     fetchQuote()
 
-    // Auto-refresh every 5 minutes (300000ms)
-    const interval = setInterval(fetchQuote, 300000)
+    // Auto-refresh every minute (60000ms)
+    const interval = setInterval(fetchQuote, 60000)
 
     return () => clearInterval(interval)
   }, [])
