@@ -4,16 +4,22 @@ import { useState, useEffect } from 'react'
 import { Quote } from '@/types/quote'
 import QuoteDisplay from '@/components/QuoteDisplay'
 import RefreshButton from '@/components/RefreshButton'
+import FavoriteButton from '@/components/FavoriteButton'
+import FavoritesView from '@/components/FavoritesView'
 import ThemeToggle from '@/components/ThemeToggle'
 import { Card, CardContent, CardDescription, CardFooter, CardHeader, CardTitle } from '@/components/ui/card'
 import { Button } from '@/components/ui/button'
-import { Sparkles } from 'lucide-react'
+import { Sparkles, Heart } from 'lucide-react'
+import { useFavorites } from '@/hooks/useFavorites'
 
 export default function Home() {
   const [quote, setQuote] = useState<Quote | null>(null)
   const [isLoading, setIsLoading] = useState(true)
   const [error, setError] = useState<string | null>(null)
   const [isTransitioning, setIsTransitioning] = useState(false)
+  const [showFavorites, setShowFavorites] = useState(false)
+
+  const { favorites, isFavorite, toggleFavorite, removeFavorite, clearFavorites } = useFavorites()
 
   const fetchQuote = async () => {
     try {
@@ -55,7 +61,21 @@ export default function Home() {
 
   return (
     <main className="min-h-screen gradient-bg-light dark:gradient-bg-dark flex items-center justify-center p-4">
-      <div className="absolute top-4 right-4 z-10">
+      <div className="absolute top-4 right-4 z-10 flex gap-2">
+        <Button
+          onClick={() => setShowFavorites(true)}
+          size="icon"
+          variant="secondary"
+          className="relative h-10 w-10 rounded-full shadow-lg hover:shadow-xl transition-all duration-300"
+          aria-label="View favorites"
+        >
+          <Heart className="h-5 w-5 fill-red-500 text-red-500" />
+          {favorites.length > 0 && (
+            <span className="absolute -top-1 -right-1 h-5 w-5 bg-primary text-primary-foreground text-xs rounded-full flex items-center justify-center font-bold">
+              {favorites.length}
+            </span>
+          )}
+        </Button>
         <ThemeToggle />
       </div>
 
@@ -89,11 +109,28 @@ export default function Home() {
             ) : null}
           </CardContent>
 
-          <CardFooter className="flex justify-center pt-2">
+          <CardFooter className="flex justify-center gap-4 pt-2">
+            <FavoriteButton
+              isFavorite={quote ? isFavorite(quote.id) : false}
+              onClick={() => quote && toggleFavorite(quote)}
+            />
             <RefreshButton onClick={fetchQuote} isLoading={isTransitioning} />
           </CardFooter>
         </Card>
       </div>
+
+      {showFavorites && (
+        <FavoritesView
+          favorites={favorites}
+          onClose={() => setShowFavorites(false)}
+          onRemove={removeFavorite}
+          onClear={() => {
+            if (confirm('Are you sure you want to clear all favorites?')) {
+              clearFavorites()
+            }
+          }}
+        />
+      )}
     </main>
   )
 }
