@@ -8,12 +8,13 @@ A beautiful, modern web application that displays inspiring quotes. Features smo
 
 - ✨ **Beautiful Modern UI** - Glassmorphism design with animated gradient backgrounds
 - 🌓 **Dark/Light Mode** - Toggle between themes with smooth transitions and localStorage persistence
-- 🔄 **Auto-Refresh** - Quotes automatically refresh every 5 minutes
+- ❤️ **Favorites System** - Save your favorite quotes and view them anytime with localStorage persistence
+- 🔄 **Auto-Refresh** - Quotes automatically refresh every minute
 - 🎯 **Manual Refresh** - Click the refresh button for instant new quotes with smooth animations
 - 📱 **Fully Responsive** - Optimized for mobile, tablet, and desktop
 - ⚡ **Lightning Fast** - Built with Next.js 14 App Router and TypeScript
 - 🎨 **Smooth Animations** - Fade-in/fade-out transitions for quote changes
-- 💯 **100 Inspirational Quotes** - Curated collection from great thinkers and leaders
+- 💯 **100+ Inspirational Quotes** - Curated collection from great thinkers and leaders
 
 ## 🚀 Quick Start
 
@@ -71,11 +72,15 @@ qotd/
 ├── components/
 │   ├── QuoteDisplay.tsx              # Quote display with animations
 │   ├── RefreshButton.tsx             # Animated refresh button
+│   ├── FavoriteButton.tsx            # Heart button to favorite quotes
+│   ├── FavoritesView.tsx             # Modal view for saved favorites
 │   ├── ThemeProvider.tsx             # Theme context provider
 │   └── ThemeToggle.tsx               # Dark/light mode toggle
+├── hooks/
+│   └── useFavorites.ts               # Custom hook for favorites management
 ├── data/
 │   ├── quotes.csv                    # Original CSV data
-│   └── quotes.json                   # Converted JSON data (100 quotes)
+│   └── quotes.json                   # Converted JSON data (100+ quotes)
 ├── types/
 │   └── quote.ts                      # TypeScript type definitions
 ├── old_python_app/                   # Archived Python desktop widget
@@ -113,6 +118,7 @@ GET /api/quotes/random
 **Response:**
 ```json
 {
+  "id": 42,
   "quote": "Actions follow being.",
   "author": "Aristotle"
 }
@@ -141,10 +147,12 @@ Then rebuild the application.
 
 ## 🐛 Development Notes
 
-- Auto-refresh interval: 5 minutes (300,000ms) - configurable in `app/page.tsx`
+- Auto-refresh interval: 1 minute (60,000ms) - configurable in `app/page.tsx`
 - Theme preference persists in localStorage
-- API route caches quotes for performance
-- Smooth fade transitions: 500ms duration
+- Favorites persist in localStorage with key `qotd-favorites`
+- API route prevents caching with `force-dynamic` and no-cache headers to ensure random quotes
+- Smooth fade transitions: 300ms duration
+- Each quote has a unique ID for favorites tracking
 
 ## 📜 License
 
