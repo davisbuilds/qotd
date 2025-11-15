@@ -1,564 +1,706 @@
 [
   {
+    "id": 1,
     "quote": "Actions follow being.",
     "author": "Aristotle"
   },
   {
+    "id": 2,
     "quote": "Life is growth. You grow or you die.",
     "author": "Phil Knight"
   },
   {
+    "id": 3,
     "quote": "Peace is happiness at rest and happiness is peace in motion.",
     "author": "Naval Ravikant"
   },
   {
+    "id": 4,
     "quote": "Out of intense complexities, intense simplicities emerge.",
     "author": "Winston Churchill"
   },
   {
+    "id": 5,
     "quote": "Time is the currency of life.",
     "author": "Daniel Kahneman"
   },
   {
+    "id": 6,
     "quote": "Do not cling to a mistake just because you spent a lot of time making it.",
     "author": "Kevin Kelly"
   },
   {
+    "id": 7,
     "quote": "Resources are plentiful. Knowledge is scarce.",
     "author": "David Deutsch"
   },
   {
+    "id": 8,
     "quote": "People with very high expectations have very low resilience.",
     "author": "Jensen Huang"
   },
   {
+    "id": 9,
     "quote": "To disagree silently is disloyal.",
     "author": "Reed Hastings"
   },
   {
+    "id": 10,
     "quote": "Feedback is a gift.",
     "author": "Tobi Lutke"
   },
   {
+    "id": 11,
     "quote": "The future is already here--its just not evenly distributed.",
     "author": "William Gibson"
   },
   {
+    "id": 12,
     "quote": "You can't think well without writing well, and you can't write well without reading well.",
     "author": "Paul Graham"
   },
   {
+    "id": 13,
     "quote": "Life shrinks or expands in proportion to one's courage.",
     "author": "Anais Nun"
   },
   {
+    "id": 14,
     "quote": "A problem well stated is half solved.",
     "author": "Charles Kettering"
   },
   {
+    "id": 15,
     "quote": "Not wanting someting is as good as having it.",
     "author": "Naval Ravikant"
   },
   {
+    "id": 16,
     "quote": "Procrastination is the soul rebelling against entrapment.",
     "author": "Nassim Taleb"
   },
   {
+    "id": 17,
     "quote": "The complicated behavior of the world around us is merely 'surface complexity' arising out of deep simplicity.",
     "author": "John Gribbin"
   },
   {
+    "id": 18,
     "quote": "Surprise is the measure of a poor hypothesis. A good model makes reality look normal, not weird.",
     "author": "Eliezer Yudkowsky"
   },
   {
+    "id": 19,
     "quote": "Wisdom is the discarding of vices and the return to virtue, by way of knowledge.",
     "author": "Naval Ravikant"
   },
   {
+    "id": 20,
     "quote": "Desire is a contract you make with yourself to be unhappy until you get what you want.",
     "author": "Naval Ravikant"
   },
   {
+    "id": 21,
     "quote": "If you want it done, then go. And if not, then send.",
     "author": "Julius Caesar"
   },
   {
+    "id": 22,
     "quote": "Mimicking the herd invites regression to the mean.",
     "author": "Charlie Munger"
   },
   {
+    "id": 23,
     "quote": "All the returns in life, whether in wealth, relationships, or knowledge, come from compound interest.",
     "author": "Naval Ravikant"
   },
   {
+    "id": 24,
     "quote": "Science is an awkward, disorganized, inefficient activity. It is simply more efficient than any other human activity.",
     "author": "Edwin Land"
   },
   {
+    "id": 25,
     "quote": "An entrepreneur can't benefit from macro-scale insight unless his own plans begin at the micro-scale.",
     "author": "Peter Thiel"
   },
   {
+    "id": 26,
     "quote": "Think of distribution as something essential to the design of your product.",
     "author": "Peter Thiel"
   },
   {
+    "id": 27,
     "quote": "He not busy being born is busy dying.",
     "author": "Bob Dylan"
   },
   {
+    "id": 28,
     "quote": "The only person who can cause you more harm than a thief with a dagger is a journalist with a pen.",
     "author": "Warren Buffett"
   },
   {
+    "id": 29,
     "quote": "Most of the world's knowledge is written somewhere--you just gotta read the right books.",
     "author": "Bill Ackman"
   },
   {
+    "id": 30,
     "quote": "Victory awaits him who has everything in order--luck, people call it.",
     "author": "Roald Amundsen"
   },
   {
+    "id": 31,
     "quote": "You're not advertising to a standing army. You're advertising to a moving parade.",
     "author": "David Ogilvy"
   },
   {
+    "id": 32,
     "quote": "In the best establishments, promises are always kept, whatever it may cost in agony and overtime.",
     "author": "David Ogilvy"
   },
   {
+    "id": 33,
     "quote": "Life can only be understood backwards, but it must be lived forwards.",
     "author": "Soren Kierkegaard"
   },
   {
+    "id": 34,
     "quote": "There is no middle ground; either don't throw any punches, or strike hard and end it quickly.",
     "author": "Peter Thiel"
   },
   {
+    "id": 35,
     "quote": "Comfort is killing your dreams.",
     "author": "Chris Choi"
   },
   {
+    "id": 36,
     "quote": "In the real world outside economic theory, every business is successful exactly to the extent that it does something others cannot.",
     "author": "Peter Thiel"
   },
   {
+    "id": 37,
     "quote": "Whatever your views on thermodynamics, it's a powerful metaphor: in business, equilibruim means stasis, and stasis means death.",
     "author": "Peter Thiel"
   },
   {
+    "id": 38,
     "quote": "The ones who are crazy enough to think that they can change the world are the ones who do.",
     "author": "Steve Jobs"
   },
   {
+    "id": 39,
     "quote": "Abstraction is key to conceptualizing the universe.",
     "author": "Grant Sanderson"
   },
   {
+    "id": 40,
     "quote": "Who controls the past controls the future. Who controls the present controls the past.",
     "author": "George Orwell"
   },
   {
+    "id": 41,
     "quote": "Those who cannot remember the past are condemned to repeat it.",
     "author": "George Santayana"
   },
   {
+    "id": 42,
     "quote": "I think the history of science has shown that valuable consequences often proliferate from simple curiosity.",
     "author": "Claude Shannon"
   },
   {
+    "id": 43,
     "quote": "Life is never indifferent and never in balance. We are steadily overcoming our problems or they are steadily overcoming us.",
     "author": "Dee Hock"
   },
   {
+    "id": 44,
     "quote": "No dream is so great as the person you might become by remaining true to it.",
     "author": "Dee Hock"
   },
   {
+    "id": 45,
     "quote": "To speak is craft; to listen is art.",
     "author": "Dee Hock"
   },
   {
+    "id": 46,
     "quote": "People are rewarded in public for what they practice for years in private.",
     "author": "Tony Robbins"
   },
   {
+    "id": 47,
     "quote": "It's not just money that compounds. Knowledge and skills do too. Stop quitting!",
     "author": "Michael Bloomberg"
   },
   {
+    "id": 48,
     "quote": "It is the doers; the lean and hungry ones, those with ambition in their eyes and fire in their bellies  who go the furthest and achieve the most.",
     "author": "Michael Bloomberg"
   },
   {
+    "id": 49,
     "quote": "Influencing the future requires four ways of looking at things: as they were, as they are, as they might become, and as they ought to be.",
     "author": "Dee Hock"
   },
   {
+    "id": 50,
     "quote": "An ounce of prevention is worth a pound of cure.",
     "author": "Benjamin Franklin"
   },
   {
+    "id": 51,
     "quote": "Differentiation is survival.",
     "author": "Jeff Bezos"
   },
   {
+    "id": 52,
     "quote": "For a successful technology, reality must take precedence over public relations, for Nature cannot be fooled.",
     "author": "Richard Feynman"
   },
   {
+    "id": 53,
     "quote": "Thinking small is a self fulfilling prophecy.",
     "author": "Jeff Bezos"
   },
   {
+    "id": 54,
     "quote": "Competition is not only the life of trade, it is the trade of life.",
     "author": "Will & Ariel Durant"
   },
   {
+    "id": 55,
     "quote": "Show me the incentive and I will show you the outcome.",
     "author": "Charlie Munger"
   },
   {
+    "id": 56,
     "quote": "Most companies that innovate early keep innovating. The companies that innovate late actually never innovate again.",
     "author": "Elad Gil"
   },
   {
+    "id": 57,
     "quote": "Don't explain your philosophy. Embody it.",
     "author": "Epictetus"
   },
   {
+    "id": 58,
     "quote": "Intelligence is a lever on the rest of the world in kind of a very fundamental way; to make a lot of things better at the same time.",
     "author": "Marc Andreessen"
   },
   {
+    "id": 59,
     "quote": "The only good generic startup advice is that there's no good generic startup advice.",
     "author": "Elad Gil"
   },
   {
+    "id": 60,
     "quote": "Talent density beats talent mass.",
     "author": "Dario Amodei"
   },
   {
+    "id": 61,
     "quote": "From ancient Greece to modern Silicon Valley there's only one thing that brings civilizations, countries, and companies down, which is hubris.",
     "author": "Satya Nadella"
   },
   {
+    "id": 62,
     "quote": "Risk-taking is the engine that moves humanity forward.",
     "author": "Brad Gerstner"
   },
   {
+    "id": 63,
     "quote": "Being an entrepreneur is the art of the possible. You have to will things into existence.",
     "author": "Brad Gerstner"
   },
   {
+    "id": 64,
     "quote": "What is the difference between a madman and a genius? Success.",
     "author": "Javier Milei"
   },
   {
+    "id": 65,
     "quote": "Necessity is the mother of both technical and creative invention.",
     "author": "Gavin Baker"
   },
   {
+    "id": 66,
     "quote": "The output of any company is the vector sum of the people within it.",
     "author": "Elon Musk"
   },
   {
+    "id": 67,
     "quote": "Proof and observation are merely means by which we check our observations.",
     "author": "David Deutsch"
   },
   {
+    "id": 68,
     "quote": "I would rather have questions that can't be answered than answers that can't be questioned.",
     "author": "Richard Feynman"
   },
   {
+    "id": 69,
     "quote": "Suffering is intimately related to staticity.",
     "author": "David Deutsch"
   },
   {
+    "id": 70,
     "quote": "Explanatory knowledge is the defining adaptation of our species.",
     "author": "David Deutsch"
   },
   {
+    "id": 71,
     "quote": "Theories postulating anomalies without explaining them are less likely than their rivals to make true predictions.",
     "author": "David Deutsch"
   },
   {
+    "id": 72,
     "quote": "The cure for a fallacious argument is a better argument, not the suppression of ideas.",
     "author": "Carl Sagan"
   },
   {
+    "id": 73,
     "quote": "Extraordinary claims require extraordinary proof.",
     "author": "Carl Sagan"
   },
   {
+    "id": 74,
     "quote": "Don't copy the what. Copy the how.",
     "author": "Kobe Bryant"
   },
   {
+    "id": 75,
     "quote": "Every man has two lives, and the second starts when he realizes he has just one.",
     "author": "Confucius"
   },
   {
+    "id": 76,
     "quote": "Pay attention to opportunity cost at all times; doing one thing means not doing other things. This is a form of risk that is very easy to ignore to your own detriment.",
     "author": "Marc Andreessen"
   },
   {
+    "id": 77,
     "quote": "Focus is about saying no.",
     "author": "Steve Jobs"
   },
   {
+    "id": 78,
     "quote": "Vision without execution is just hallucination.",
     "author": "Henry Ford"
   },
   {
+    "id": 79,
     "quote": "Good communication is the bridge between confusion and clarity.",
     "author": "Nat Turner"
   },
   {
+    "id": 80,
     "quote": "He that is good with a hammer tends to think everything is a nail.",
     "author": "Abraham Maslow"
   },
   {
+    "id": 81,
     "quote": "It's never too late to be what you might have been.",
     "author": "George Eliot"
   },
   {
+    "id": 82,
     "quote": "Our life is what our thoughts make it.",
     "author": "Marcus Aurelius"
   },
   {
+    "id": 83,
     "quote": "Thinking is diffifult, that's why most people judge.",
     "author": "Carl Jung"
   },
   {
+    "id": 84,
     "quote": "We suffer more in our imagination than in reality.",
     "author": "Seneca"
   },
   {
+    "id": 85,
     "quote": "If I have seen further it is by standing on the shoulders of giants.",
     "author": "Isaac Newton"
   },
   {
+    "id": 86,
     "quote": "Economic growth is not a cure-all, but lack of growth is a kill-all.",
     "author": "Paul Collier"
   },
   {
+    "id": 87,
     "quote": "If you don't know where you are going, every road will get you nowhere.",
     "author": "Henry Kissinger"
   },
   {
+    "id": 88,
     "quote": "There are two ways to be fooled. One is to believe what isn't true. The other is to refuse to accept what is true. ",
     "author": "Soren Kierkegaard"
   },
   {
+    "id": 89,
     "quote": "Perfecting oneself is as much unlearning as it is learning.",
     "author": "Edgar Dijkstra"
   },
   {
+    "id": 90,
     "quote": "Time spent getting a thing right is never wasted; it is time saved in the end.",
     "author": "Henry Ford"
   },
   {
+    "id": 91,
     "quote": "Insanity is doing the same thing, over and over again, but expecting different results.",
     "author": "Albert Einstein"
   },
   {
+    "id": 92,
     "quote": "There's a way to do it better - find it!",
     "author": "Thomas Edison"
   },
   {
+    "id": 93,
     "quote": "If you think you can do a thing or think you can't do a thing, you're right.",
     "author": "Henry Ford"
   },
   {
+    "id": 94,
     "quote": "Your task is not to seek for love, but merely to seek and find all the barriers within yourself that you have built against it.",
     "author": "Rumi"
   },
   {
+    "id": 95,
     "quote": "Luck is what happens when preparation meets opportunity.",
     "author": "Seneca"
   },
   {
+    "id": 96,
     "quote": "I skate to where the puck is going to be, not where it has been.",
     "author": "Wayne Gretzky"
   },
   {
+    "id": 97,
     "quote": "Perspective: it is bad to have an opinion you're proud of if you can't state the arguments for the other side better than your opponents.",
     "author": "Charlie Munger"
   },
   {
+    "id": 98,
     "quote": "Good ideas are rare--when the odds are greatly in your favor, bet heavily.",
     "author": "Charlie Munger"
   },
   {
+    "id": 99,
     "quote": "I think of each hour spent on fitness as one day less that I’ll spend in a hospital.",
     "author": "Ed Thorp"
   },
   {
+    "id": 100,
     "quote": "Though the institutions of society have difficulty learning from history, individuals can do so.",
     "author": "Ed Thorp"
   },
   {
+    "id": 101,
     "quote": "The best way to predict the future is to invent it.",
     "author": "Alan Kay"
   },
   {
+    "id": 102,
     "quote": "The first lesson of economics is scarcity: there is never enough of something to satisfy everyone. The first lesson of politics is to ignore the first lesson of economics.",
     "author": "Thomas Sowell"
   },
   {
+    "id": 103,
     "quote": "Innovation distinguishes between a leader and a follower.",
     "author": "Steve Jobs"
   },
   {
+    "id": 104,
     "quote": "The secret of change is to focus all of your energy, not on fighting the old, but on building the new.",
     "author": "Socrates"
   },
   {
+    "id": 105,
     "quote": "It is not the strongest of the species that survive, nor the most intelligent, but the one most responsive to change.",
     "author": "Charles Darwin"
   },
   {
+    "id": 106,
     "quote": "Do not wait to strike till the iron is hot; but make it hot by striking.",
     "author": "William Butler Yeats"
   },
   {
+    "id": 107,
     "quote": "What if laziness is nothing but a habit of thinking about the effort instead of thinking about the outcome?",
     "author": "Scott Adams"
   },
-  { "quote": "Simplicity is the ultimate sophistication.",
+  {
+    "id": 108,
+    "quote": "Simplicity is the ultimate sophistication.",
     "author": "Leonardo da Vinci"
   },
   {
+    "id": 109,
     "quote": "He who writes for fools always finds a large public. A precondition for reading good books is not reading bad ones: for life is short.",
     "author": "Arthur Schopenhauer"
   },
   {
+    "id": 110,
     "quote": "Knowledge is a process of piling up facts; wisdom lies in their simplification.",
     "author": "Martin H. Fischer"
   },
   {
+    "id": 111,
     "quote": "Every truth passes through three stages before it is recognized. In the first stage it is ridiculed, in the second stage it is opposed, in the third stage it is regarded as self-evident.",
     "author": "Arthur Schopenhauer"
   },
   {
+    "id": 112,
     "quote": "It is not in the stars to hold our destiny but in ourselves.",
     "author": "William Shakespeare"
   },
   {
+    "id": 113,
     "quote": "Rationality is not about knowing facts, it's about recognizing which facts are relevant.",
     "author": "Grant Sanderson"
   },
   {
+    "id": 114,
     "quote": "The important thing is not to stop questioning. Curiosity has its own reason for existing.",
     "author": "Albert Einstein"
   },
   {
+    "id": 115,
     "quote": "Hypothesis are nets: only he who casts will catch.",
     "author": "Novalis"
   },
   {
+    "id": 116,
     "quote": "The greatest enemy of knowledge is not ignorance, it is the illusion of knowledge.",
     "author": "Stephen Hawking"
   },
   {
+    "id": 117,
     "quote": "The measure of intelligence is the ability to change.",
     "author": "Albert Einstein"
   },
   {
+    "id": 118,
     "quote": "You’re born, you have a set of sensory experiences, then you die, and how you choose to interpret those sensory inputs is up to you.",
     "author": "Naval Ravikant"
   },
   {
+    "id": 119,
     "quote": "We can move to better theories only if we take our best existing theories seriously, as explanations of the world.",
     "author": "David Deutsch"
   },
   {
+    "id": 120,
     "quote": "No theory of knowledge should attempt to explain why we are successful in our attempt to explain things.",
     "author": "Karl Popper"
   },
   {
+    "id": 121,
     "quote": "It is not for the benevolence of the butcher that we expect our daily meat. It is for his self interest.",
     "author": "Adam Smith"
   },
   {
+    "id": 122,
     "quote": "The only people who achieve much are those who want knowledge so badly that they seek it while the conditions are unfavorable. Favorable conditions never come.",
     "author": "C. S. Lewis"
   },
   {
+    "id": 123,
     "quote": "That men do not learn very much from the lessons of history is the most important of all the lessons of history.",
     "author": "Aldous Huxley"
   },
   {
+    "id": 124,
     "quote": "The reasonable man adapts himself to the world; the unreasonable one persists in trying to adapt the world to himself. Therefore all progress depends on the unreasonable man.",
     "author": "George Bernard Shaw"
   },
   {
+    "id": 125,
     "quote": "Writing is not just communicating with others, but also with your own unconscious mind.",
     "author": "Gurwinder Bhogal"
   },
   {
+    "id": 126,
     "quote": "How you do one thing is how you do all things.",
     "author": "David Senra"
   },
   {
+    "id": 127,
     "quote": "The greatest risk in this day and age is to take no risks.",
     "author": "David Senra"
   },
   {
+    "id": 128,
     "quote": "Big thinkers often do big things. Small thinkers never do big things",
     "author": "Don Valentine"
   },
   {
+    "id": 129,
     "quote": "We must constantly remind ourselves as to why we are successful and what we must do to continue to be successful, because if we become complacent, brother it’s all over with.",
     "author": "Les Schwab"
   },
   {
+    "id": 130,
     "quote": "Success breeds complacency. Complacency breeds failure. Only the paranoid survive.",
     "author": "Andy Grove"
   },
   {
+    "id": 131,
     "quote": "Strategy is not words, strategy is action.",
     "author": "Jensen Huang"
   },
   {
+    "id": 132,
     "quote": "You build a great company by doing things that other people can’t do. You don’t build a company by fighting other people to do things that everyone can do.",
     "author": "Jensen Huang"
   },
   {
+    "id": 133,
     "quote": "The key to success on the internet is you want to be the biggest fish in the pond, but the success metric is not competing with other fish, it’s finding your own pond. The opportunity is broad, it’s not deep.",
     "author": "Ben Thompson"
   },
   {
+    "id": 134,
     "quote": "The purpose of models is not to fit the data but to sharpen the questions.",
     "author": "Samuel Karlin"
   },
   {
+    "id": 135,
     "quote": "The reality is that there is no objective reality, at least when it comes to who you are. Everything about yourself that you might care about only makes sense relative to the other features of the environment.",
     "author": "Kevin Simler"
   },
   {
+    "id": 136,
     "quote": "Personality is a strategy for making the most of one's particular lot in life.",
     "author": "Kevin Simler"
   },
   {
+    "id": 137,
     "quote": "Scientific revolutions are more often driven by new tools than by new concepts.",
     "author": "Freeman Dyson"
   },
   {
+    "id": 138,
     "quote": "A lot of people overestimate others' abilities to execute on simple ideas and give up on their complicated ideas (sunk cost fallacy). Even if something is obvious to do, surprisingly few people will do it.",
     "author": "Nathan Lambert"
   },
   {
+    "id": 139,
     "quote": "More economic activity means you have more exposed surface area to have more discoveries.",
     "author": "Ege Erdil"
   },
   {
+    "id": 140,
     "quote": "What makes things hard isn’t complexity, it’s consistency.",
     "author": "Alex Hormozi"
   },
   {
+    "id": 141,
     "quote": "Losers fear rejection, winners fear regret.",
     "author": "Alex Hormozi"
   }
