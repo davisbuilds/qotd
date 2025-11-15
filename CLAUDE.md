@@ -57,15 +57,16 @@ This is a **Next.js 14 web application** that displays inspirational quotes with
 
 **Main Page (`app/page.tsx`)**
 - Client-side React component managing quote state and auto-refresh
-- Implements 5-minute auto-refresh interval (300,000ms)
+- Implements 1-minute auto-refresh interval (60,000ms)
 - Handles loading states, error handling, and smooth transitions
-- Integrates QuoteDisplay, RefreshButton, and ThemeToggle components
+- Integrates QuoteDisplay, RefreshButton, FavoriteButton, FavoritesView, and ThemeToggle components
+- Manages favorites modal state and user interactions
 
 **API Route (`app/api/quotes/random/route.ts`)**
 - Next.js API route returning random quotes from JSON data
-- Loads quotes from `data/quotes.json` (100+ inspirational quotes)
+- Loads quotes from `data/quotes.json` (141 inspirational quotes with unique IDs)
 - Provides error handling for missing/corrupted data
-- Returns JSON response with quote/author structure
+- Returns JSON response with id/quote/author structure
 
 **Quote Display System (`components/QuoteDisplay.tsx`)**
 - Animated quote presentation with fade transitions
@@ -77,12 +78,21 @@ This is a **Next.js 14 web application** that displays inspirational quotes with
 - Uses next-themes for seamless theme switching
 - Integrates with Tailwind CSS custom properties
 
+**Favorites System (`hooks/useFavorites.ts`, `components/FavoriteButton.tsx`, `components/FavoritesView.tsx`)**
+- Custom React hook managing favorites state with localStorage persistence
+- Star button component with animated transitions and yellow fill for favorited quotes
+- Modal view displaying all saved favorites with remove/clear functionality
+- Favorites counter badge showing number of saved quotes
+- All favorites persist across browser sessions using localStorage key `qotd-favorites`
+
 ### Data Management
 
-- **Quote Source**: `data/quotes.json` contains 100+ curated quotes
+- **Quote Source**: `data/quotes.json` contains 141 curated quotes
 - **Quote Type**: TypeScript interface defined in `types/quote.ts`
-- **Data Structure**: Each quote has `quote` and `author` fields
+- **Data Structure**: Each quote has `id` (number), `quote` (string), and `author` (string) fields
+- **Quote IDs**: Sequential integers (1-141) used for tracking favorites
 - **API Access**: RESTful endpoint at `/api/quotes/random`
+- **Favorites Storage**: localStorage key `qotd-favorites` stores array of favorited Quote objects
 
 ### Technology Stack
 
@@ -94,9 +104,15 @@ This is a **Next.js 14 web application** that displays inspirational quotes with
 
 ### Key Features Implementation
 
-- **Auto-refresh**: 5-minute interval using `setInterval` in `useEffect`
+- **Auto-refresh**: 1-minute interval using `setInterval` in `useEffect`
 - **Manual Refresh**: Button triggers immediate new quote fetch with animations
-- **Smooth Transitions**: 500ms fade animations coordinated between components
+- **Favorites System**:
+  - Star/unstar quotes with visual feedback (yellow fill)
+  - View all favorites in modal with counter badge
+  - Remove individual favorites or clear all
+  - Persist across sessions via localStorage (`qotd-favorites`)
+  - Custom `useFavorites` hook managing state and CRUD operations
+- **Smooth Transitions**: 300ms fade animations coordinated between components
 - **Theme Persistence**: localStorage integration via next-themes
 - **Responsive Design**: Mobile-first approach with Tailwind breakpoints
 - **Error Handling**: Graceful fallbacks for API failures and loading states

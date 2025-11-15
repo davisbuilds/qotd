@@ -7,13 +7,14 @@ A beautiful, modern web application that displays inspiring quotes. Features smo
 ## 🌟 Features
 
 - ✨ **Beautiful Modern UI** - Glassmorphism design with animated gradient backgrounds
+- ⭐ **Favorites System** - Star your favorite quotes and save them locally with localStorage persistence
 - 🌓 **Dark/Light Mode** - Toggle between themes with smooth transitions and localStorage persistence
-- 🔄 **Auto-Refresh** - Quotes automatically refresh every 5 minutes
+- 🔄 **Auto-Refresh** - Quotes automatically refresh every minute
 - 🎯 **Manual Refresh** - Click the refresh button for instant new quotes with smooth animations
 - 📱 **Fully Responsive** - Optimized for mobile, tablet, and desktop
 - ⚡ **Lightning Fast** - Built with Next.js 14 App Router and TypeScript
 - 🎨 **Smooth Animations** - Fade-in/fade-out transitions for quote changes
-- 💯 **100 Inspirational Quotes** - Curated collection from great thinkers and leaders
+- 💯 **141 Inspirational Quotes** - Curated collection from great thinkers and leaders
 
 ## 🚀 Quick Start
 
@@ -69,13 +70,17 @@ qotd/
 │   ├── layout.tsx                    # Root layout with ThemeProvider
 │   └── page.tsx                      # Main page component
 ├── components/
+│   ├── FavoriteButton.tsx            # Star button for favoriting quotes
+│   ├── FavoritesView.tsx             # Modal to view all favorites
 │   ├── QuoteDisplay.tsx              # Quote display with animations
 │   ├── RefreshButton.tsx             # Animated refresh button
 │   ├── ThemeProvider.tsx             # Theme context provider
 │   └── ThemeToggle.tsx               # Dark/light mode toggle
 ├── data/
 │   ├── quotes.csv                    # Original CSV data
-│   └── quotes.json                   # Converted JSON data (100 quotes)
+│   └── quotes.json                   # Converted JSON data (141 quotes with IDs)
+├── hooks/
+│   └── useFavorites.ts               # Custom hook for favorites management
 ├── types/
 │   └── quote.ts                      # TypeScript type definitions
 ├── old_python_app/                   # Archived Python desktop widget
@@ -113,6 +118,7 @@ GET /api/quotes/random
 **Response:**
 ```json
 {
+  "id": 1,
   "quote": "Actions follow being.",
   "author": "Aristotle"
 }
@@ -132,19 +138,22 @@ To add more quotes, edit `data/quotes.json`:
 
 ```json
 {
+  "id": 142,
   "quote": "Your inspirational quote here",
   "author": "Author Name"
 }
 ```
 
-Then rebuild the application.
+Make sure to use a unique ID for each quote. Then rebuild the application.
 
 ## 🐛 Development Notes
 
-- Auto-refresh interval: 5 minutes (300,000ms) - configurable in `app/page.tsx`
-- Theme preference persists in localStorage
+- Auto-refresh interval: 1 minute (60,000ms) - configurable in `app/page.tsx`
+- Theme preference persists in localStorage (`theme`)
+- Favorites persist in localStorage (`qotd-favorites`)
 - API route caches quotes for performance
-- Smooth fade transitions: 500ms duration
+- Smooth fade transitions: 300ms duration
+- Each quote has a unique ID for favoriting functionality
 
 ## 📜 License
 
