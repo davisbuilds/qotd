@@ -2,13 +2,23 @@ import { NextResponse } from 'next/server';
 import { Quote } from '@/types/quote';
 import quotesData from '@/data/quotes.json';
 
-const quotes: Quote[] = quotesData;
+// Singleton pattern: cache quotes in memory to avoid re-parsing JSON on every request
+let cachedQuotes: Quote[] | null = null;
+
+function getQuotes(): Quote[] {
+  if (!cachedQuotes) {
+    cachedQuotes = quotesData as Quote[];
+  }
+  return cachedQuotes;
+}
 
 // Force dynamic rendering - prevent static optimization
 export const dynamic = 'force-dynamic';
 
 export async function GET() {
   try {
+    const quotes = getQuotes();
+
     if (!quotes || quotes.length === 0) {
       return NextResponse.json(
         { error: 'No quotes available' },
