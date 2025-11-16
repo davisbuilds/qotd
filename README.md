@@ -14,7 +14,7 @@ A beautiful, modern web application that displays inspiring quotes. Features smo
 - 📱 **Fully Responsive** - Optimized for mobile, tablet, and desktop
 - ⚡ **Lightning Fast** - Built with Next.js 14 App Router and TypeScript
 - 🎨 **Smooth Animations** - Fade-in/fade-out transitions for quote changes
-- 💯 **100+ Inspirational Quotes** - Curated collection from great thinkers and leaders
+- 💯 **150+ Inspirational Quotes** - Curated collection from great thinkers and leaders
 
 ## 🚀 Quick Start
 
