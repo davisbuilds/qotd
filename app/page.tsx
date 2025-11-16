@@ -11,6 +11,8 @@ import { Card, CardContent, CardDescription, CardFooter, CardHeader, CardTitle }
 import { Button } from '@/components/ui/button'
 import { Sparkles, Heart } from 'lucide-react'
 import { useFavorites } from '@/hooks/useFavorites'
+import { TIMING, UI } from '@/lib/constants'
+import { cn } from '@/lib/utils'
 
 export default function Home() {
   const [quote, setQuote] = useState<Quote | null>(null)
@@ -26,9 +28,7 @@ export default function Home() {
       setIsTransitioning(true)
       setError(null)
 
-      // Wait for fade-out animation
-      await new Promise(resolve => setTimeout(resolve, 300))
-
+      // Fetch quote (network request happens in parallel with CSS fade-out)
       const response = await fetch('/api/quotes/random')
       if (!response.ok) {
         throw new Error('Failed to fetch quote')
@@ -38,9 +38,10 @@ export default function Home() {
       setQuote(data)
       setIsLoading(false)
 
-      // Wait for fade-in animation
-      await new Promise(resolve => setTimeout(resolve, 100))
-      setIsTransitioning(false)
+      // Use requestAnimationFrame to ensure DOM update completes before fade-in
+      requestAnimationFrame(() => {
+        setIsTransitioning(false)
+      })
     } catch (err) {
       console.error('Error fetching quote:', err)
       setError('Failed to load quote. Please try again.')
@@ -53,8 +54,8 @@ export default function Home() {
     // Initial quote fetch
     fetchQuote()
 
-    // Auto-refresh every minute (60000ms)
-    const interval = setInterval(fetchQuote, 60000)
+    // Auto-refresh every minute
+    const interval = setInterval(fetchQuote, TIMING.AUTO_REFRESH_INTERVAL)
 
     return () => clearInterval(interval)
   }, [])
@@ -66,7 +67,7 @@ export default function Home() {
           onClick={() => setShowFavorites(true)}
           size="icon"
           variant="secondary"
-          className="relative h-10 w-10 rounded-full shadow-lg hover:shadow-xl transition-all duration-300"
+          className={cn("relative", UI.BUTTON_SIZES.small, UI.ICON_BUTTON_BASE)}
           aria-label="View favorites"
         >
           <Heart className="h-5 w-5 fill-red-500 text-red-500" />

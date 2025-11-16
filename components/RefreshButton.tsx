@@ -3,6 +3,7 @@
 import { Button } from '@/components/ui/button'
 import { RefreshCw } from 'lucide-react'
 import { cn } from '@/lib/utils'
+import { UI } from '@/lib/constants'
 
 interface RefreshButtonProps {
   onClick: () => void
@@ -16,7 +17,7 @@ export default function RefreshButton({ onClick, isLoading }: RefreshButtonProps
       disabled={isLoading}
       size="icon"
       variant="secondary"
-      className="group relative h-14 w-14 rounded-full shadow-lg hover:shadow-xl transition-all duration-300 hover:scale-110"
+      className={cn("group relative", UI.BUTTON_SIZES.large, UI.ICON_BUTTON_BASE, "hover:scale-110")}
       aria-label="Refresh quote"
     >
       <RefreshCw
