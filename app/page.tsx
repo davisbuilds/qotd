@@ -26,9 +26,7 @@ export default function Home() {
       setIsTransitioning(true)
       setError(null)
 
-      // Wait for fade-out animation
-      await new Promise(resolve => setTimeout(resolve, 300))
-
+      // Fetch quote (network request happens in parallel with CSS fade-out)
       const response = await fetch('/api/quotes/random')
       if (!response.ok) {
         throw new Error('Failed to fetch quote')
@@ -38,9 +36,10 @@ export default function Home() {
       setQuote(data)
       setIsLoading(false)
 
-      // Wait for fade-in animation
-      await new Promise(resolve => setTimeout(resolve, 100))
-      setIsTransitioning(false)
+      // Use requestAnimationFrame to ensure DOM update completes before fade-in
+      requestAnimationFrame(() => {
+        setIsTransitioning(false)
+      })
     } catch (err) {
       console.error('Error fetching quote:', err)
       setError('Failed to load quote. Please try again.')
