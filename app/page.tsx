@@ -11,6 +11,8 @@ import { Card, CardContent, CardDescription, CardFooter, CardHeader, CardTitle }
 import { Button } from '@/components/ui/button'
 import { Sparkles, Heart } from 'lucide-react'
 import { useFavorites } from '@/hooks/useFavorites'
+import { TIMING, UI } from '@/lib/constants'
+import { cn } from '@/lib/utils'
 
 export default function Home() {
   const [quote, setQuote] = useState<Quote | null>(null)
@@ -52,8 +54,8 @@ export default function Home() {
     // Initial quote fetch
     fetchQuote()
 
-    // Auto-refresh every minute (60000ms)
-    const interval = setInterval(fetchQuote, 60000)
+    // Auto-refresh every minute
+    const interval = setInterval(fetchQuote, TIMING.AUTO_REFRESH_INTERVAL)
 
     return () => clearInterval(interval)
   }, [])
@@ -65,7 +67,7 @@ export default function Home() {
           onClick={() => setShowFavorites(true)}
           size="icon"
           variant="secondary"
-          className="relative h-10 w-10 rounded-full shadow-lg hover:shadow-xl transition-all duration-300"
+          className={cn("relative", UI.BUTTON_SIZES.small, UI.ICON_BUTTON_BASE)}
           aria-label="View favorites"
         >
           <Heart className="h-5 w-5 fill-red-500 text-red-500" />

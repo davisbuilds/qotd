@@ -2,8 +2,7 @@
 
 import { useState, useEffect } from 'react'
 import { Quote } from '@/types/quote'
-
-const FAVORITES_KEY = 'qotd-favorites'
+import { STORAGE_KEYS } from '@/lib/constants'
 
 export function useFavorites() {
   const [favorites, setFavorites] = useState<Quote[]>([])
@@ -12,7 +11,7 @@ export function useFavorites() {
   // Load favorites from localStorage on mount
   useEffect(() => {
     try {
-      const stored = localStorage.getItem(FAVORITES_KEY)
+      const stored = localStorage.getItem(STORAGE_KEYS.FAVORITES)
       if (stored) {
         const parsed = JSON.parse(stored)
         setFavorites(parsed)
@@ -28,7 +27,7 @@ export function useFavorites() {
   useEffect(() => {
     if (isLoaded) {
       try {
-        localStorage.setItem(FAVORITES_KEY, JSON.stringify(favorites))
+        localStorage.setItem(STORAGE_KEYS.FAVORITES, JSON.stringify(favorites))
       } catch (error) {
         console.error('Error saving favorites:', error)
       }
