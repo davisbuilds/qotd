@@ -9,7 +9,7 @@ import FavoritesView from '@/components/FavoritesView'
 import ThemeToggle from '@/components/ThemeToggle'
 import { Card, CardContent, CardDescription, CardFooter, CardHeader, CardTitle } from '@/components/ui/card'
 import { Button } from '@/components/ui/button'
-import { Sparkles, Heart } from 'lucide-react'
+import { Heart } from 'lucide-react'
 import { useFavorites } from '@/hooks/useFavorites'
 import { TIMING, UI } from '@/lib/constants'
 import { cn } from '@/lib/utils'
@@ -62,17 +62,23 @@ export default function Home() {
 
   return (
     <main className="min-h-screen gradient-bg-light dark:gradient-bg-dark flex items-center justify-center p-4">
-      <div className="absolute top-4 right-4 z-10 flex gap-2">
+      <div className="absolute top-6 right-6 z-10 flex gap-3">
         <Button
           onClick={() => setShowFavorites(true)}
           size="icon"
           variant="secondary"
-          className={cn("relative", UI.BUTTON_SIZES.small, UI.ICON_BUTTON_BASE)}
+          className={cn(
+            "relative transition-all duration-200",
+            UI.BUTTON_SIZES.medium,
+            UI.ICON_BUTTON_BASE,
+            "hover:scale-105 active:scale-95",
+            "shadow-sm hover:shadow-md"
+          )}
           aria-label="View favorites"
         >
-          <Heart className="h-5 w-5 fill-red-500 text-red-500" />
+          <Heart className="h-5 w-5 fill-rose-500 text-rose-500" />
           {favorites.length > 0 && (
-            <span className="absolute -top-1 -right-1 h-5 w-5 bg-primary text-primary-foreground text-xs rounded-full flex items-center justify-center font-bold">
+            <span className="absolute -top-1.5 -right-1.5 h-6 w-6 bg-primary text-primary-foreground text-xs rounded-full flex items-center justify-center font-bold shadow-md animate-in zoom-in duration-200">
               {favorites.length}
             </span>
           )}
@@ -80,28 +86,28 @@ export default function Home() {
         <ThemeToggle />
       </div>
 
-      <div className="w-full max-w-2xl">
-        <Card className="glass-card border-0 shadow-2xl">
-          <CardHeader className="text-center pb-4">
-            <CardTitle className="text-3xl md:text-4xl font-bold flex items-center justify-center gap-2">
-              <Sparkles className="h-6 w-6" />
-              quote of the day
-              <Sparkles className="h-6 w-6" />
+      <div className="w-full max-w-3xl px-4">
+        <Card className="glass-card border-0 shadow-2xl overflow-hidden">
+          <CardHeader className="text-center pb-8 pt-12">
+            <CardTitle className="text-4xl md:text-5xl font-bold tracking-tight">
+              Quote of the Day
             </CardTitle>
-            <CardDescription className="text-base">
-              by Davis & Claude
+            <CardDescription className="text-base mt-3 opacity-60">
+              Curated with care
             </CardDescription>
           </CardHeader>
 
-          <CardContent className="min-h-[200px] flex items-center justify-center">
+          <CardContent className="min-h-[280px] flex items-center justify-center px-8 md:px-16 pb-4">
             {isLoading && !quote ? (
-              <div className="text-center py-12">
-                <div className="animate-pulse text-muted-foreground">Loading...</div>
+              <div className="text-center py-16">
+                <div className="elegant-pulse text-muted-foreground text-lg font-light tracking-wide">
+                  Loading...
+                </div>
               </div>
             ) : error ? (
-              <div className="text-center py-12 space-y-4">
-                <div className="text-destructive">{error}</div>
-                <Button onClick={fetchQuote} variant="secondary">
+              <div className="text-center py-16 space-y-6">
+                <div className="text-destructive text-lg">{error}</div>
+                <Button onClick={fetchQuote} variant="secondary" className="px-8 py-6 text-base">
                   Try Again
                 </Button>
               </div>
@@ -110,7 +116,7 @@ export default function Home() {
             ) : null}
           </CardContent>
 
-          <CardFooter className="flex justify-center gap-4 pt-2">
+          <CardFooter className="flex justify-center gap-6 pt-4 pb-10">
             <FavoriteButton
               isFavorite={quote ? isFavorite(quote.id) : false}
               onClick={() => quote && toggleFavorite(quote)}

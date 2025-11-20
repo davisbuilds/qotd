@@ -17,12 +17,18 @@ export default function RefreshButton({ onClick, isLoading }: RefreshButtonProps
       disabled={isLoading}
       size="icon"
       variant="secondary"
-      className={cn("group relative", UI.BUTTON_SIZES.large, UI.ICON_BUTTON_BASE, "hover:scale-110")}
+      className={cn(
+        "group relative transition-all duration-200",
+        UI.BUTTON_SIZES.large,
+        UI.ICON_BUTTON_BASE,
+        "hover:scale-105 active:scale-95",
+        "shadow-sm hover:shadow-md"
+      )}
       aria-label="Refresh quote"
     >
       <RefreshCw
         className={cn(
-          "h-6 w-6 transition-transform duration-500",
+          "h-6 w-6 transition-transform duration-300 ease-out",
           isLoading ? 'animate-spin' : 'group-hover:rotate-180'
         )}
       />

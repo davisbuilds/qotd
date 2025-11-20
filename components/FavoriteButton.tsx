@@ -16,15 +16,21 @@ export default function FavoriteButton({ isFavorite, onClick }: FavoriteButtonPr
       onClick={onClick}
       size="icon"
       variant="secondary"
-      className={cn("group relative", UI.BUTTON_SIZES.large, UI.ICON_BUTTON_BASE, "hover:scale-110")}
+      className={cn(
+        "group relative transition-all duration-200",
+        UI.BUTTON_SIZES.large,
+        UI.ICON_BUTTON_BASE,
+        "hover:scale-105 active:scale-95",
+        "shadow-sm hover:shadow-md"
+      )}
       aria-label={isFavorite ? 'Remove from favorites' : 'Add to favorites'}
     >
       <Star
         className={cn(
-          "h-6 w-6 transition-all duration-300",
+          "h-6 w-6 transition-all duration-200 ease-out",
           isFavorite
-            ? 'fill-yellow-400 text-yellow-400 scale-110'
-            : 'fill-none group-hover:scale-110'
+            ? 'fill-amber-400 text-amber-400 scale-110'
+            : 'fill-none group-hover:scale-110 group-hover:text-amber-300'
         )}
       />
     </Button>

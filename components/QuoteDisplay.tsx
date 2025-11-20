@@ -12,16 +12,16 @@ export default function QuoteDisplay({ quote, isTransitioning }: QuoteDisplayPro
   return (
     <div
       className={cn(
-        "transition-all duration-500",
-        isTransitioning ? 'opacity-0 transform translate-y-4' : 'opacity-100 transform translate-y-0'
+        "transition-all duration-300 ease-out",
+        isTransitioning ? 'opacity-0 transform translate-y-2 scale-98' : 'opacity-100 transform translate-y-0 scale-100'
       )}
     >
-      <blockquote className="text-center space-y-6">
-        <p className="text-xl md:text-2xl lg:text-3xl font-serif leading-relaxed text-foreground">
-          "{quote.quote}"
+      <blockquote className="text-center space-y-8">
+        <p className="text-2xl md:text-3xl lg:text-4xl font-serif leading-relaxed text-foreground tracking-tight">
+          {quote.quote}
         </p>
-        <footer className="text-base md:text-lg text-muted-foreground italic">
-          — {quote.author}
+        <footer className="text-lg md:text-xl text-muted-foreground font-light tracking-wide pt-2">
+          {quote.author}
         </footer>
       </blockquote>
     </div>

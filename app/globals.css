@@ -59,18 +59,18 @@
   }
 }
 
-/* Animated gradient background for light mode */
+/* Refined gradient background for light mode - sophisticated, muted tones */
 .gradient-bg-light {
-  background: linear-gradient(-45deg, #ee7752, #e73c7e, #23a6d5, #23d5ab);
+  background: linear-gradient(-45deg, #f5f3ff, #faf5ff, #eff6ff, #f0fdfa);
   background-size: 400% 400%;
-  animation: gradient 15s ease infinite;
+  animation: gradient 20s ease-in-out infinite;
 }
 
-/* Animated gradient background for dark mode */
+/* Refined gradient background for dark mode - deep, rich tones */
 .gradient-bg-dark {
-  background: linear-gradient(-45deg, #1e1b4b, #312e81, #1e3a8a, #164e63);
+  background: linear-gradient(-45deg, #0f0a1e, #1a0b2e, #0c1222, #0a1628);
   background-size: 400% 400%;
-  animation: gradient 15s ease infinite;
+  animation: gradient 20s ease-in-out infinite;
 }
 
 @keyframes gradient {
@@ -85,17 +85,37 @@
   }
 }
 
-/* Enhanced glassmorphism effect */
+/* Premium glassmorphism effect - refined and elegant */
 .glass-card {
-  background: rgba(255, 255, 255, 0.85);
-  backdrop-filter: blur(20px);
-  -webkit-backdrop-filter: blur(20px);
-  border: 1px solid rgba(255, 255, 255, 0.3);
-  box-shadow: 0 8px 32px 0 rgba(31, 38, 135, 0.15);
+  background: rgba(255, 255, 255, 0.95);
+  backdrop-filter: blur(32px) saturate(180%);
+  -webkit-backdrop-filter: blur(32px) saturate(180%);
+  border: 1px solid rgba(255, 255, 255, 0.5);
+  box-shadow:
+    0 1px 3px 0 rgba(0, 0, 0, 0.05),
+    0 10px 40px -10px rgba(0, 0, 0, 0.08),
+    0 20px 60px -20px rgba(0, 0, 0, 0.06);
 }
 
 .dark .glass-card {
-  background: rgba(17, 25, 40, 0.75);
-  border: 1px solid rgba(255, 255, 255, 0.125);
-  box-shadow: 0 8px 32px 0 rgba(0, 0, 0, 0.3);
+  background: rgba(15, 15, 25, 0.85);
+  border: 1px solid rgba(255, 255, 255, 0.08);
+  box-shadow:
+    0 1px 3px 0 rgba(0, 0, 0, 0.3),
+    0 10px 40px -10px rgba(0, 0, 0, 0.4),
+    0 20px 60px -20px rgba(0, 0, 0, 0.35);
+}
+
+/* Elegant pulse animation for loading states */
+@keyframes elegant-pulse {
+  0%, 100% {
+    opacity: 0.4;
+  }
+  50% {
+    opacity: 0.8;
+  }
+}
+
+.elegant-pulse {
+  animation: elegant-pulse 2s cubic-bezier(0.4, 0, 0.6, 1) infinite;
 }
