@@ -80,9 +80,9 @@ export default function Home() {
         <ThemeToggle />
       </div>
 
-      <div className="w-full max-w-3xl">
+      <div className="w-full max-w-2xl">
         <Card className="glass-card border-0 shadow-2xl">
-          <CardHeader className="text-center pb-8">
+          <CardHeader className="text-center pb-4">
             <CardTitle className="text-3xl md:text-4xl font-bold flex items-center justify-center gap-2">
               <Sparkles className="h-6 w-6" />
               quote of the day
@@ -93,13 +93,13 @@ export default function Home() {
             </CardDescription>
           </CardHeader>
 
-          <CardContent className="min-h-[280px] flex items-center justify-center">
+          <CardContent className="min-h-[200px] flex items-center justify-center">
             {isLoading && !quote ? (
-              <div className="text-center py-16">
+              <div className="text-center py-12">
                 <div className="animate-pulse text-muted-foreground">Loading...</div>
               </div>
             ) : error ? (
-              <div className="text-center py-16 space-y-4">
+              <div className="text-center py-12 space-y-4">
                 <div className="text-destructive">{error}</div>
                 <Button onClick={fetchQuote} variant="secondary">
                   Try Again
