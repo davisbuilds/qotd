@@ -17,7 +17,7 @@ export default function ThemeToggle() {
 
   if (!mounted) {
     return (
-      <Button size="icon" variant="secondary" className={cn(UI.BUTTON_SIZES.medium, "rounded-full")} disabled>
+      <Button size="icon" variant="secondary" className={cn(UI.BUTTON_SIZES.medium, UI.ICON_BUTTON_BASE)} disabled>
         <Sun className="h-6 w-6" />
       </Button>
     )

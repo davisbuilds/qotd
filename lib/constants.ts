@@ -28,9 +28,9 @@ export const STORAGE_KEYS = {
 export const UI = {
   /** Button size classes for icon buttons */
   BUTTON_SIZES: {
-    large: 'h-14 w-14 p-4',
-    medium: 'h-12 w-12 p-3',
-    small: 'h-10 w-10 p-2',
+    large: 'h-14 w-14 p-3',
+    medium: 'h-12 w-12 p-2',
+    small: 'h-10 w-10 p-1.5',
   },
   /** Common button styling for icon buttons */
   ICON_BUTTON_BASE: 'rounded-full shadow-lg hover:shadow-xl transition-all duration-300',
