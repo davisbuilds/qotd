@@ -18,10 +18,10 @@ export default function QuoteDisplay({ quote, isTransitioning }: QuoteDisplayPro
     >
       <blockquote className="text-center space-y-6">
         <p className="text-xl md:text-2xl lg:text-3xl font-serif leading-relaxed text-foreground">
-          "{quote.quote}"
+          {quote.quote}
         </p>
-        <footer className="text-base md:text-lg text-muted-foreground italic">
-          — {quote.author}
+        <footer className="text-base md:text-lg text-muted-foreground">
+          {quote.author}
         </footer>
       </blockquote>
     </div>
