@@ -13,7 +13,8 @@ export default function ThemeToggle() {
     setMounted(true)
   }, [])
 
-  const isDark = theme === 'dark'
+  // Default to dark mode during hydration to match defaultTheme
+  const isDark = theme !== 'light'
 
   if (!mounted) {
     return (

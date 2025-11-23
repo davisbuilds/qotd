@@ -11,7 +11,8 @@ interface RefreshButtonProps {
 
 export default function RefreshButton({ onClick, isLoading }: RefreshButtonProps) {
   const { theme } = useTheme()
-  const isDark = theme === 'dark'
+  // Default to dark mode during hydration to match defaultTheme
+  const isDark = theme !== 'light'
 
   return (
     <button

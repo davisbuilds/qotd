@@ -24,7 +24,8 @@ export default function Home() {
 
   const { favorites, isFavorite, toggleFavorite, removeFavorite, clearFavorites } = useFavorites()
 
-  const isDark = theme === 'dark'
+  // Default to dark mode during hydration to match defaultTheme
+  const isDark = theme !== 'light'
 
   const fetchQuote = async () => {
     try {
