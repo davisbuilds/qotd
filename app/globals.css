@@ -59,43 +59,119 @@
   }
 }
 
-/* Animated gradient background for light mode */
-.gradient-bg-light {
-  background: linear-gradient(-45deg, #ee7752, #e73c7e, #23a6d5, #23d5ab);
-  background-size: 400% 400%;
-  animation: gradient 15s ease infinite;
+/* Elegant background for light mode */
+.elegant-bg-light {
+  background: linear-gradient(135deg,
+    hsl(0, 0%, 99%) 0%,
+    hsl(240, 5%, 96%) 50%,
+    hsl(0, 0%, 99%) 100%
+  );
+  position: relative;
 }
 
-/* Animated gradient background for dark mode */
-.gradient-bg-dark {
-  background: linear-gradient(-45deg, #1e1b4b, #312e81, #1e3a8a, #164e63);
-  background-size: 400% 400%;
-  animation: gradient 15s ease infinite;
+.elegant-bg-light::before {
+  content: '';
+  position: absolute;
+  inset: 0;
+  background: radial-gradient(circle at 20% 50%, hsla(240, 6%, 10%, 0.03) 0%, transparent 50%),
+              radial-gradient(circle at 80% 50%, hsla(240, 6%, 10%, 0.03) 0%, transparent 50%);
+  animation: subtle-pulse 8s ease-in-out infinite alternate;
 }
 
-@keyframes gradient {
-  0% {
-    background-position: 0% 50%;
-  }
-  50% {
-    background-position: 100% 50%;
-  }
-  100% {
-    background-position: 0% 50%;
-  }
+/* Elegant background for dark mode */
+.elegant-bg-dark {
+  background: linear-gradient(135deg,
+    hsl(240, 10%, 6%) 0%,
+    hsl(240, 8%, 12%) 50%,
+    hsl(240, 10%, 6%) 100%
+  );
+  position: relative;
 }
 
-/* Enhanced glassmorphism effect */
-.glass-card {
-  background: rgba(255, 255, 255, 0.85);
-  backdrop-filter: blur(20px);
-  -webkit-backdrop-filter: blur(20px);
-  border: 1px solid rgba(255, 255, 255, 0.3);
-  box-shadow: 0 8px 32px 0 rgba(31, 38, 135, 0.15);
+.elegant-bg-dark::before {
+  content: '';
+  position: absolute;
+  inset: 0;
+  background: radial-gradient(circle at 20% 50%, hsla(240, 6%, 10%, 0.03) 0%, transparent 50%),
+              radial-gradient(circle at 80% 50%, hsla(240, 6%, 10%, 0.03) 0%, transparent 50%);
+  animation: subtle-pulse 8s ease-in-out infinite alternate;
 }
 
-.dark .glass-card {
-  background: rgba(17, 25, 40, 0.75);
-  border: 1px solid rgba(255, 255, 255, 0.125);
-  box-shadow: 0 8px 32px 0 rgba(0, 0, 0, 0.3);
+@keyframes subtle-pulse {
+  0% { opacity: 0.3; }
+  100% { opacity: 0.6; }
+}
+
+/* Refined glassmorphism effect for light mode */
+.refined-glass-light {
+  background: linear-gradient(135deg,
+    rgba(255, 255, 255, 0.7) 0%,
+    rgba(255, 255, 255, 0.5) 100%
+  );
+  backdrop-filter: blur(40px) saturate(180%);
+  -webkit-backdrop-filter: blur(40px) saturate(180%);
+  border: 1px solid rgba(255, 255, 255, 0.2);
+  box-shadow:
+    0 8px 32px 0 rgba(0, 0, 0, 0.08),
+    0 2px 8px 0 rgba(0, 0, 0, 0.04),
+    inset 0 1px 0 0 rgba(255, 255, 255, 0.4);
+}
+
+/* Refined glassmorphism effect for dark mode */
+.refined-glass-dark {
+  background: linear-gradient(135deg,
+    rgba(30, 30, 40, 0.8) 0%,
+    rgba(20, 20, 30, 0.9) 100%
+  );
+  backdrop-filter: blur(40px) saturate(180%);
+  -webkit-backdrop-filter: blur(40px) saturate(180%);
+  border: 1px solid rgba(255, 255, 255, 0.08);
+  box-shadow:
+    0 8px 32px 0 rgba(0, 0, 0, 0.4),
+    0 2px 8px 0 rgba(0, 0, 0, 0.2),
+    inset 0 1px 0 0 rgba(255, 255, 255, 0.05);
+}
+
+/* Quotation marks */
+.quote-mark {
+  font-family: Georgia, serif;
+  font-size: 4rem;
+  line-height: 0;
+  opacity: 0.12;
+  position: absolute;
+  user-select: none;
+  pointer-events: none;
+}
+
+.quote-mark-open {
+  top: -0.5rem;
+  left: -1rem;
+}
+
+.quote-mark-close {
+  bottom: -2rem;
+  right: -1rem;
+}
+
+/* Elegant hover effect */
+.elegant-hover {
+  transition: all 0.3s cubic-bezier(0.4, 0, 0.2, 1);
+}
+
+.elegant-hover:hover {
+  transform: translateY(-2px);
+}
+
+.elegant-hover:active {
+  transform: translateY(0);
+}
+
+/* Loading shimmer animation */
+.loading-shimmer {
+  animation: loading-shimmer 2s ease-in-out infinite;
+}
+
+@keyframes loading-shimmer {
+  0%, 100% { opacity: 0.4; }
+  50% { opacity: 1; }
 }

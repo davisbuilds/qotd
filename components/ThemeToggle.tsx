@@ -2,10 +2,8 @@
 
 import { useTheme } from 'next-themes'
 import { useEffect, useState } from 'react'
-import { Button } from '@/components/ui/button'
 import { Moon, Sun } from 'lucide-react'
 import { cn } from '@/lib/utils'
-import { UI } from '@/lib/constants'
 
 export default function ThemeToggle() {
   const [mounted, setMounted] = useState(false)
@@ -15,27 +13,55 @@ export default function ThemeToggle() {
     setMounted(true)
   }, [])
 
+  const isDark = theme === 'dark'
+
   if (!mounted) {
     return (
-      <Button size="icon" variant="secondary" className={cn(UI.BUTTON_SIZES.large, UI.ICON_BUTTON_BASE)} disabled>
-        <Sun className="h-6 w-6" />
-      </Button>
+      <button
+        disabled
+        className={cn(
+          "group relative flex items-center justify-center h-10 w-10 rounded-full transition-all duration-300 ease-out focus:outline-none",
+          'bg-white/5 border border-white/10'
+        )}
+        style={{ boxShadow: '0 4px 16px rgba(255,255,255,0.1)' }}
+      >
+        <Sun className="h-4 w-4 text-white/60" strokeWidth={1.5} />
+      </button>
     )
   }
 
   return (
-    <Button
+    <button
       onClick={() => setTheme(theme === 'dark' ? 'light' : 'dark')}
-      size="icon"
-      variant="secondary"
-      className={cn("group", UI.BUTTON_SIZES.large, UI.ICON_BUTTON_BASE, "hover:scale-110")}
-      aria-label="Toggle theme"
-    >
-      {theme === 'dark' ? (
-        <Moon className="h-6 w-6 transition-transform group-hover:rotate-12" />
-      ) : (
-        <Sun className="h-6 w-6 transition-transform group-hover:rotate-90" />
+      className={cn(
+        "group relative flex items-center justify-center h-10 w-10 rounded-full transition-all duration-300 ease-out focus:outline-none elegant-hover",
+        isDark
+          ? 'bg-white/5 hover:bg-white/10 border border-white/10 hover:border-white/20'
+          : 'bg-black/5 hover:bg-black/10 border border-black/10 hover:border-black/20'
       )}
-    </Button>
+      style={{ boxShadow: isDark ? '0 4px 16px rgba(255,255,255,0.1)' : '0 4px 16px rgba(0,0,0,0.1)' }}
+      aria-label={`Switch to ${isDark ? 'light' : 'dark'} mode`}
+    >
+      <Sun
+        className={cn(
+          "absolute h-4 w-4 transition-all duration-500 ease-out",
+          isDark
+            ? 'rotate-90 scale-0 opacity-0'
+            : 'rotate-0 scale-100 opacity-100',
+          isDark ? 'text-white/60' : 'text-black/60'
+        )}
+        strokeWidth={1.5}
+      />
+      <Moon
+        className={cn(
+          "absolute h-4 w-4 transition-all duration-500 ease-out",
+          isDark
+            ? 'rotate-0 scale-100 opacity-100'
+            : '-rotate-90 scale-0 opacity-0',
+          isDark ? 'text-white/60' : 'text-black/60'
+        )}
+        strokeWidth={1.5}
+      />
+    </button>
   )
 }
