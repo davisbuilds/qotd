@@ -11,7 +11,8 @@ interface QuoteDisplayProps {
 
 export default function QuoteDisplay({ quote, isTransitioning }: QuoteDisplayProps) {
   const { theme } = useTheme()
-  const isDark = theme === 'dark'
+  // Default to dark mode during hydration to match defaultTheme
+  const isDark = theme !== 'light'
 
   return (
     <div
