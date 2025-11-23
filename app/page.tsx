@@ -20,6 +20,7 @@ export default function Home() {
   const [error, setError] = useState<string | null>(null)
   const [isTransitioning, setIsTransitioning] = useState(false)
   const [showFavorites, setShowFavorites] = useState(false)
+  const [mounted, setMounted] = useState(false)
   const { theme } = useTheme()
 
   const { favorites, isFavorite, toggleFavorite, removeFavorite, clearFavorites } = useFavorites()
@@ -57,6 +58,10 @@ export default function Home() {
   }
 
   useEffect(() => {
+    setMounted(true)
+  }, [])
+
+  useEffect(() => {
     // Initial quote fetch
     fetchQuote()
 
@@ -65,6 +70,36 @@ export default function Home() {
 
     return () => clearInterval(interval)
   }, [])
+
+  // Show loading skeleton until mounted to prevent hydration mismatch
+  if (!mounted) {
+    return (
+      <main className="min-h-screen elegant-bg-dark flex items-center justify-center p-6 md:p-8 relative overflow-hidden">
+        <div className="w-full max-w-4xl mx-auto relative z-10">
+          <div className="text-center mb-16 md:mb-20">
+            <h1 className="text-3xl md:text-4xl font-bold flex items-center justify-center gap-2 mb-3 text-white/90">
+              <Sparkles className="h-6 w-6" />
+              quote of the day
+              <Sparkles className="h-6 w-6" />
+            </h1>
+            <div className="h-[1px] w-16 mx-auto mb-3 bg-gradient-to-r from-transparent via-white/20 to-transparent" />
+            <p className="text-xs tracking-wider text-white/40">
+              by Davis & Claude
+            </p>
+          </div>
+          <div className="refined-glass-dark px-8 py-16 md:px-16 md:py-20 rounded-2xl relative">
+            <div className="min-h-[280px] md:min-h-[320px] flex items-center justify-center">
+              <div className="text-center">
+                <div className="loading-shimmer text-sm tracking-wider text-white/40">
+                  Gathering wisdom...
+                </div>
+              </div>
+            </div>
+          </div>
+        </div>
+      </main>
+    )
+  }
 
   return (
     <main className={cn(
