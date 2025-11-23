@@ -1,20 +1,22 @@
 # ✨ Quote of the Day - Next.js Web App
 
-A beautiful, modern web application that displays inspiring quotes. Features smooth animations, dark/light mode, auto-refresh, and a stunning glassmorphism design.
+A beautiful, elegant web application that displays inspiring quotes with a sophisticated minimalist design. Features smooth animations, dark/light mode, auto-refresh, favorites, and refined glassmorphism effects.
 
 **By Davis & Claude** 🚀
 
 ## 🌟 Features
 
-- ✨ **Beautiful Modern UI** - Glassmorphism design with animated gradient backgrounds
-- 🌓 **Dark/Light Mode** - Toggle between themes with smooth transitions and localStorage persistence
-- ❤️ **Favorites System** - Save your favorite quotes and view them anytime with localStorage persistence
+- ✨ **Elegant Minimalist Design** - Refined glassmorphism with muted gradient backgrounds and subtle pulse animations
+- 🎨 **Large Hero Typography** - Responsive quote text from 2xl to 5xl with decorative Georgia serif quotation marks
+- 🌓 **Dark Mode First** - Defaults to dark theme with seamless light mode toggle and localStorage persistence
+- ⭐ **Favorites System** - Save your favorite quotes with star button and view them anytime
+- ❤️ **Favorites Badge** - Visual counter in top-right showing number of saved quotes
 - 🔄 **Auto-Refresh** - Quotes automatically refresh every minute
-- 🎯 **Manual Refresh** - Click the refresh button for instant new quotes with smooth animations
-- 📱 **Fully Responsive** - Optimized for mobile, tablet, and desktop
+- 🎯 **Manual Refresh** - Circular button with elegant hover effects for instant new quotes
+- 📱 **Fully Responsive** - Optimized for mobile, tablet, and desktop with mobile-first design
 - ⚡ **Lightning Fast** - Built with Next.js 14 App Router and TypeScript
-- 🎨 **Smooth Animations** - Fade-in/fade-out transitions for quote changes
-- 💯 **150+ Inspirational Quotes** - Curated collection from great thinkers and leaders
+- 🎭 **Smooth Animations** - 700ms fade transitions with scale and translate effects
+- 💯 **100+ Inspirational Quotes** - Curated collection from great thinkers and leaders
 
 ## 🚀 Quick Start
 
@@ -91,12 +93,12 @@ qotd/
 
 - **Framework**: Next.js 14 (App Router)
 - **Language**: TypeScript
-- **UI Components**: shadcn/ui - Beautiful, accessible components
-- **Styling**: Tailwind CSS with CSS Variables
-- **Icons**: Lucide React
-- **Theme Management**: next-themes
-- **Animations**: CSS transitions & keyframes with tailwindcss-animate
-- **API**: Next.js API Routes
+- **UI Components**: Custom minimalist circular button design
+- **Styling**: Tailwind CSS with custom elegant backgrounds and refined glassmorphism
+- **Icons**: Lucide React (RotateCw, Star, Heart, Moon, Sun, Sparkles)
+- **Theme Management**: next-themes with dark mode default
+- **Animations**: CSS transitions & keyframes with custom cubic-bezier easing
+- **API**: Next.js API Routes with force-dynamic for random quotes
 - **Deployment Ready**: Vercel, Netlify, or any Node.js host
 
 ## 🌐 Deploy to Vercel
@@ -126,11 +128,16 @@ GET /api/quotes/random
 
 ## 🎨 Design Highlights
 
-- **Glassmorphism Effect**: Frosted glass card with backdrop blur
-- **Animated Gradients**: Dynamic background that shifts colors
-- **Smooth Transitions**: All state changes animated for polish
-- **Accessible**: Proper ARIA labels and semantic HTML
-- **Responsive Typography**: Scales beautifully from mobile to desktop
+- **Elegant Minimalism**: Sophisticated muted color palette with refined aesthetics
+- **Refined Glassmorphism**: Enhanced 40px blur with layered shadows for depth
+- **Muted Gradients**: Subtle background gradients with gentle pulse animations
+- **Large Typography**: Hero-sized quote text (2xl-5xl) with font-light weight for elegance
+- **Decorative Elements**: Georgia serif quotation marks positioned absolutely
+- **Circular Buttons**: Minimalist design with elegant hover effects and subtle hover rings
+- **Smooth Transitions**: 700ms fade animations with scale and translate effects
+- **Dark Mode First**: Defaults to dark theme with hydration-safe theme detection
+- **Accessible**: Proper ARIA labels, semantic HTML, and keyboard navigation
+- **Responsive Typography**: Scales beautifully from mobile to desktop with breakpoints
 
 ## 📝 Adding More Quotes
 
@@ -148,11 +155,14 @@ Then rebuild the application.
 ## 🐛 Development Notes
 
 - Auto-refresh interval: 1 minute (60,000ms) - configurable in `app/page.tsx`
-- Theme preference persists in localStorage
+- Theme defaults to dark mode and persists in localStorage
+- Hydration-safe theme detection using `theme !== 'light'` pattern prevents flash
 - Favorites persist in localStorage with key `qotd-favorites`
 - API route prevents caching with `force-dynamic` and no-cache headers to ensure random quotes
-- Smooth fade transitions: 300ms duration
+- Smooth fade transitions: 700ms duration with scale and translate effects
+- Elegant hover effects: translateY(-2px) with cubic-bezier(0.4, 0, 0.2, 1) easing
 - Each quote has a unique ID for favorites tracking
+- Custom CSS animations for subtle pulse effects and loading shimmer
 
 ## 📜 License
 

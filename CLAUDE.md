@@ -51,7 +51,17 @@ cd old_python_app && uv sync
 
 ## Architecture Overview
 
-This is a **Next.js 14 web application** that displays inspirational quotes with modern UI and smooth animations. The original Python CustomTkinter desktop widget has been completely refactored into this web app.
+This is a **Next.js 14 web application** that displays inspirational quotes with an **elegant minimalist design** and smooth animations. The original Python CustomTkinter desktop widget has been completely refactored into this web app.
+
+### Design Philosophy
+
+The application features a sophisticated, minimalist aesthetic with:
+- **Elegant Backgrounds**: Muted gradient backgrounds with subtle pulse animations
+- **Refined Glassmorphism**: Enhanced 40px blur with layered shadows for depth
+- **Minimalist Buttons**: Circular design with elegant hover effects and subtle rings
+- **Large Typography**: Hero-sized quote text (2xl-5xl) with font-light weight
+- **Decorative Elements**: Georgia serif quotation marks for visual interest
+- **Dark Mode First**: Defaults to dark mode with seamless light mode toggle
 
 ### Core Next.js App Structure
 
@@ -59,8 +69,10 @@ This is a **Next.js 14 web application** that displays inspirational quotes with
 - Client-side React component managing quote state and auto-refresh
 - Implements 1-minute auto-refresh interval (60,000ms)
 - Handles loading states, error handling, and smooth transitions
+- Elegant minimalist layout with centered content and refined glass card
 - Integrates QuoteDisplay, RefreshButton, FavoriteButton, FavoritesView, and ThemeToggle components
 - Manages favorites state using the useFavorites hook
+- Uses `theme !== 'light'` pattern to default to dark mode during hydration
 
 **API Route (`app/api/quotes/random/route.ts`)**
 - Next.js API route returning random quotes from JSON data
@@ -71,21 +83,27 @@ This is a **Next.js 14 web application** that displays inspirational quotes with
 - Includes no-cache headers to ensure truly random quotes on each request
 
 **Quote Display System (`components/QuoteDisplay.tsx`)**
-- Animated quote presentation with fade transitions
-- Typography scaling for mobile/desktop responsiveness
-- Blockquote styling with proper semantic HTML
+- Animated quote presentation with 700ms fade transitions
+- Decorative quotation marks in Georgia serif font
+- Large responsive typography (2xl to 5xl breakpoints)
+- Visual separator line between quote and author
+- Font-light weight for elegant appearance
+- Proper semantic HTML with blockquote elements
 
 **Theme System (`components/ThemeProvider.tsx`, `components/ThemeToggle.tsx`)**
-- Dark/light mode with localStorage persistence
+- Dark/light mode with localStorage persistence (defaults to dark)
 - Uses next-themes for seamless theme switching
+- Circular minimalist toggle with animated icon transitions
+- Hydration-safe with `theme !== 'light'` pattern
 - Integrates with Tailwind CSS custom properties
 
 **Favorites System (`components/FavoriteButton.tsx`, `components/FavoritesView.tsx`, `hooks/useFavorites.ts`)**
-- Heart button to add/remove quotes from favorites
+- Star button to add/remove quotes from favorites (circular minimalist design)
 - localStorage persistence for favorite quotes
 - Favorites view modal displaying all saved quotes
-- Badge showing favorites count in the top-right corner
+- Heart icon badge showing favorites count in the top-right corner
 - Ability to remove individual favorites or clear all at once
+- Integrated into main card footer alongside refresh button
 
 ### Data Management
 
@@ -98,20 +116,25 @@ This is a **Next.js 14 web application** that displays inspirational quotes with
 ### Technology Stack
 
 - **Framework**: Next.js 14 with App Router and TypeScript
-- **UI**: shadcn/ui components built on Radix UI primitives
-- **Styling**: Tailwind CSS with custom glassmorphism effects
+- **UI**: Custom components with minimalist circular button design
+- **Styling**: Tailwind CSS with custom elegant backgrounds and refined glassmorphism
+- **Icons**: Lucide React (RotateCw, Star, Heart, Moon, Sun, Sparkles)
 - **State**: React hooks for client-side state management
+- **Theme**: next-themes with dark mode default
 - **Deployment**: Vercel-optimized with zero configuration
 
 ### Key Features Implementation
 
 - **Auto-refresh**: 1-minute interval using `setInterval` in `useEffect` (60,000ms)
-- **Manual Refresh**: Button triggers immediate new quote fetch with animations
-- **Favorites**: Save and manage favorite quotes with localStorage persistence
-- **Favorites Badge**: Visual counter showing number of saved favorites
-- **Smooth Transitions**: 300ms fade animations coordinated between components
-- **Theme Persistence**: localStorage integration via next-themes
-- **Responsive Design**: Mobile-first approach with Tailwind breakpoints
+- **Manual Refresh**: Circular button with RotateCw icon triggers immediate new quote fetch
+- **Favorites**: Star button to save and manage favorite quotes with localStorage persistence
+- **Favorites Badge**: Heart icon in top-right with visual counter showing saved count
+- **Smooth Transitions**: 700ms fade animations with scale and translate effects
+- **Elegant Hover Effects**: Subtle translateY(-2px) on hover with cubic-bezier easing
+- **Theme Persistence**: localStorage integration via next-themes, defaults to dark mode
+- **Hydration Safe**: Uses `theme !== 'light'` pattern to prevent flash on load
+- **Responsive Design**: Mobile-first approach with Tailwind breakpoints (md, lg, xl)
+- **Loading States**: "Gathering wisdom..." with shimmer animation
 - **Error Handling**: Graceful fallbacks for API failures and loading states
 - **Cache Prevention**: API configured with `force-dynamic` and no-cache headers
 
