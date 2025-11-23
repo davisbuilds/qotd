@@ -16,7 +16,7 @@ A beautiful, elegant web application that displays inspiring quotes with a sophi
 - 📱 **Fully Responsive** - Optimized for mobile, tablet, and desktop with mobile-first design
 - ⚡ **Lightning Fast** - Built with Next.js 14 App Router and TypeScript
 - 🎭 **Smooth Animations** - 700ms fade transitions with scale and translate effects
-- 💯 **100+ Inspirational Quotes** - Curated collection from great thinkers and leaders
+- 💯 **200+ Inspirational Quotes** - Curated collection from great thinkers and leaders
 
 ## 🚀 Quick Start
 
@@ -145,6 +145,7 @@ To add more quotes, edit `data/quotes.json`:
 
 ```json
 {
+  "id": ##,
   "quote": "Your inspirational quote here",
   "author": "Author Name"
 }
@@ -154,7 +155,7 @@ Then rebuild the application.
 
 ## 🐛 Development Notes
 
-- Auto-refresh interval: 1 minute (60,000ms) - configurable in `app/page.tsx`
+- Auto-refresh interval: 2 minutes (120,000ms) - configurable in `lib/constants.ts`
 - Theme defaults to dark mode and persists in localStorage
 - Hydration-safe theme detection using `theme !== 'light'` pattern prevents flash
 - Favorites persist in localStorage with key `qotd-favorites`

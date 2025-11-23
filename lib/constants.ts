@@ -6,8 +6,8 @@
  * Timing constants in milliseconds
  */
 export const TIMING = {
-  /** Auto-refresh interval for quotes (1 minute) */
-  AUTO_REFRESH_INTERVAL: 60_000,
+  /** Auto-refresh interval for quotes (2 minutes) */
+  AUTO_REFRESH_INTERVAL: 120_000,
   /** Quote transition animation duration */
   QUOTE_TRANSITION_DURATION: 500,
   /** Debounce delay for localStorage writes */

@@ -65,7 +65,7 @@ export default function Home() {
     // Initial quote fetch
     fetchQuote()
 
-    // Auto-refresh every minute
+    // Auto-refresh every 2 minutes
     const interval = setInterval(fetchQuote, TIMING.AUTO_REFRESH_INTERVAL)
 
     return () => clearInterval(interval)

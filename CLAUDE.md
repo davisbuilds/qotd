@@ -67,7 +67,7 @@ The application features a sophisticated, minimalist aesthetic with:
 
 **Main Page (`app/page.tsx`)**
 - Client-side React component managing quote state and auto-refresh
-- Implements 1-minute auto-refresh interval (60,000ms)
+- Implements 2-minute auto-refresh interval (120,000ms)
 - Handles loading states, error handling, and smooth transitions
 - Elegant minimalist layout with centered content and refined glass card
 - Integrates QuoteDisplay, RefreshButton, FavoriteButton, FavoritesView, and ThemeToggle components
@@ -107,7 +107,7 @@ The application features a sophisticated, minimalist aesthetic with:
 
 ### Data Management
 
-- **Quote Source**: `data/quotes.json` contains 100+ curated quotes
+- **Quote Source**: `data/quotes.json` contains 200+ curated quotes
 - **Quote Type**: TypeScript interface defined in `types/quote.ts`
 - **Data Structure**: Each quote has `id` (number), `quote` (string), and `author` (string) fields
 - **API Access**: RESTful endpoint at `/api/quotes/random`
@@ -125,7 +125,7 @@ The application features a sophisticated, minimalist aesthetic with:
 
 ### Key Features Implementation
 
-- **Auto-refresh**: 1-minute interval using `setInterval` in `useEffect` (60,000ms)
+- **Auto-refresh**: 2-minute interval using `setInterval` in `useEffect` (120,000ms)
 - **Manual Refresh**: Circular button with RotateCw icon triggers immediate new quote fetch
 - **Favorites**: Star button to save and manage favorite quotes with localStorage persistence
 - **Favorites Badge**: Heart icon in top-right with visual counter showing saved count
