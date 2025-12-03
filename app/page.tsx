@@ -76,7 +76,7 @@ export default function Home() {
     return (
       <main className="min-h-screen elegant-bg-dark flex items-center justify-center p-6 md:p-8 relative overflow-hidden">
         <div className="w-full max-w-4xl mx-auto relative z-10">
-          <div className="text-center mb-16 md:mb-20">
+          <div className="text-center mb-16 md:mb-20 px-24 md:px-0">
             <h1 className="text-3xl md:text-4xl font-bold flex items-center justify-center gap-2 mb-3 text-white/90">
               <Sparkles className="h-6 w-6" />
               quote of the day
@@ -135,7 +135,7 @@ export default function Home() {
       {/* Main content container */}
       <div className="w-full max-w-4xl mx-auto relative z-10">
         {/* Header - elegant and minimal */}
-        <div className="text-center mb-16 md:mb-20">
+        <div className="text-center mb-16 md:mb-20 px-24 md:px-0">
           <h1 className={cn(
             "text-3xl md:text-4xl font-bold flex items-center justify-center gap-2 mb-3",
             isDark ? 'text-white/90' : 'text-black/90'
