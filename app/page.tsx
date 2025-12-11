@@ -76,11 +76,11 @@ export default function Home() {
     return (
       <main className="min-h-screen elegant-bg-dark flex items-center justify-center p-6 md:p-8 relative overflow-hidden">
         <div className="w-full max-w-4xl mx-auto relative z-10">
-          <div className="text-center mb-16 md:mb-20 px-24 md:px-0">
-            <h1 className="text-3xl md:text-4xl font-bold flex items-center justify-center gap-2 mb-3 text-white/90">
-              <Sparkles className="h-6 w-6" />
+          <div className="text-center mb-16 md:mb-20 px-16 md:px-0">
+            <h1 className="text-2xl md:text-4xl font-bold flex items-center justify-center gap-1.5 md:gap-2 mb-3 text-white/90">
+              <Sparkles className="h-5 w-5 md:h-6 md:w-6" />
               quote of the day
-              <Sparkles className="h-6 w-6" />
+              <Sparkles className="h-5 w-5 md:h-6 md:w-6" />
             </h1>
             <div className="h-[1px] w-16 mx-auto mb-3 bg-gradient-to-r from-transparent via-white/20 to-transparent" />
             <p className="text-xs tracking-wider text-white/40">
@@ -135,14 +135,14 @@ export default function Home() {
       {/* Main content container */}
       <div className="w-full max-w-4xl mx-auto relative z-10">
         {/* Header - elegant and minimal */}
-        <div className="text-center mb-16 md:mb-20 px-24 md:px-0">
+        <div className="text-center mb-16 md:mb-20 px-16 md:px-0">
           <h1 className={cn(
-            "text-3xl md:text-4xl font-bold flex items-center justify-center gap-2 mb-3",
+            "text-2xl md:text-4xl font-bold flex items-center justify-center gap-1.5 md:gap-2 mb-3",
             isDark ? 'text-white/90' : 'text-black/90'
           )}>
-            <Sparkles className="h-6 w-6" />
+            <Sparkles className="h-5 w-5 md:h-6 md:w-6" />
             quote of the day
-            <Sparkles className="h-6 w-6" />
+            <Sparkles className="h-5 w-5 md:h-6 md:w-6" />
           </h1>
           <div className={cn(
             "h-[1px] w-16 mx-auto mb-3",
