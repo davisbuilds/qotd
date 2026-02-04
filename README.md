@@ -23,7 +23,7 @@ A beautiful, elegant web application that displays inspiring quotes with a sophi
 ### Prerequisites
 
 - Node.js 18.17 or later
-- npm or yarn
+- pnpm
 
 ### Installation
 
@@ -37,7 +37,7 @@ cd qotd
 2. Install dependencies:
 
 ```bash
-npm install
+pnpm install
 # or
 yarn install
 ```
@@ -45,7 +45,7 @@ yarn install
 3. Run the development server:
 
 ```bash
-npm run dev
+pnpm run dev
 # or
 yarn dev
 ```
@@ -55,8 +55,8 @@ yarn dev
 ## 🏗️ Build for Production
 
 ```bash
-npm run build
-npm start
+pnpm run build
+pnpm start
 ```
 
 ## 📁 Project Structure

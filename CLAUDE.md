@@ -8,14 +8,14 @@ This file provides guidance to Claude Code (claude.ai/code) when working with co
 
 ```bash
 # Development server
-npm run dev
+pnpm run dev
 
 # Production build and start
-npm run build
-npm start
+pnpm run build
+pnpm start
 
 # Linting
-npm run lint
+pnpm run lint
 ```
 
 ### Legacy Python App Commands (Archived)
@@ -43,7 +43,7 @@ python -m unittest discover tests/
 
 ```bash
 # Install Node.js dependencies
-npm install
+pnpm install
 
 # For Python app development (archived)
 cd old_python_app && uv sync
@@ -150,8 +150,8 @@ The codebase was migrated from a Python CustomTkinter desktop widget to a Next.j
 
 ## Development Workflow
 
-- Use `npm run dev` for development with hot reload
-- Run `npm run lint` before committing changes
+- Use `pnpm run dev` for development with hot reload
+- Run `pnpm run lint` before committing changes
 - Quote data modifications require editing `data/quotes.json`
 - Component changes automatically reflected due to React Fast Refresh
-- Build verification with `npm run build` before deployment
+- Build verification with `pnpm run build` before deployment
