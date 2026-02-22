@@ -10,10 +10,10 @@ This file provides guidance to coding agents working in this repository.
 ## Package Manager
 - Use `pnpm` for all installs and scripts.
 - Install: `pnpm install`
-- Development: `pnpm run dev`
-- Build: `pnpm run build`
-- Start: `pnpm run start`
-- Lint: `pnpm run lint`
+- Development: `pnpm dev`
+- Build: `pnpm build`
+- Start: `pnpm start`
+- Lint: `pnpm lint`
 
 ## Code Structure
 - `app/` contains Next.js routes and pages.
@@ -32,5 +32,5 @@ This file provides guidance to coding agents working in this repository.
 - Ensure JSON remains valid and sorted only if a change requires it.
 
 ## Checks
-- Run `pnpm run lint` before finishing.
-- If changing build or config, also run `pnpm run build`.
+- Run `pnpm lint` before finishing.
+- If changing build or config, also run `pnpm build`.
