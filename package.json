@@ -3,6 +3,7 @@
   "version": "2.0.0",
   "description": "Beautiful Next.js quote of the day web app by Davis & Claude",
   "private": true,
+  "author": "davisbuilds",
   "packageManager": "pnpm@10.28.1",
   "scripts": {
     "dev": "next dev",
