@@ -22,8 +22,8 @@ export default function QuoteDisplay({ quote, isTransitioning }: QuoteDisplayPro
       )}
     >
       {/* Decorative quotation marks */}
-      <span className={cn("quote-mark quote-mark-open", isDark ? 'text-white' : 'text-black')} aria-hidden="true">"</span>
-      <span className={cn("quote-mark quote-mark-close", isDark ? 'text-white' : 'text-black')} aria-hidden="true">"</span>
+      <span className={cn("quote-mark quote-mark-open", isDark ? 'text-white' : 'text-black')} aria-hidden="true">&ldquo;</span>
+      <span className={cn("quote-mark quote-mark-close", isDark ? 'text-white' : 'text-black')} aria-hidden="true">&rdquo;</span>
 
       <blockquote className="text-center space-y-8 md:space-y-10 relative z-10">
         {/* The quote text - hero element */}

@@ -57,7 +57,7 @@ export default function FavoritesView({ favorites, onClose, onRemove, onClear }:
                   <div className="flex items-start justify-between gap-4">
                     <div className="flex-1">
                       <blockquote className="text-base md:text-lg mb-2">
-                        "{quote.quote}"
+                        &ldquo;{quote.quote}&rdquo;
                       </blockquote>
                       <p className="text-sm text-muted-foreground">— {quote.author}</p>
                     </div>

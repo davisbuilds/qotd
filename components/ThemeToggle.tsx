@@ -10,7 +10,13 @@ export default function ThemeToggle() {
   const { theme, setTheme } = useTheme()
 
   useEffect(() => {
-    setMounted(true)
+    const timer = window.setTimeout(() => {
+      setMounted(true)
+    }, 0)
+
+    return () => {
+      window.clearTimeout(timer)
+    }
   }, [])
 
   // Default to dark mode during hydration to match defaultTheme
