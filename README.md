@@ -4,6 +4,28 @@ A beautiful, elegant web application that displays inspiring quotes with a sophi
 
 **By Davis & Claude** 🚀
 
+## 🤖 Agent Setup
+
+New here? Paste the prompt below into your coding agent (Claude Code, Codex, etc.) and it will install, verify, and tell you how to launch the app.
+
+```text
+Set up the `qotd` repo for me. It's a "Quote of the Day" single-page web app
+(Next.js 14 App Router, TypeScript, Tailwind) with auto-refresh, favorites, and
+dark-mode-first theming. All quote data is static JSON — no env vars or secrets.
+
+Do this, in order:
+1. Install deps. Prereqs: Node 18.17+ and pnpm. Run `pnpm install` from the repo
+   root. Clone https://github.com/davisbuilds/qotd.git and cd in first if needed.
+2. Verify it builds: run `pnpm lint` then `pnpm build`. Both should pass. If either
+   fails, show me the error and stop.
+3. Report back: confirm lint + build passed, and give me the command to run it
+   (`pnpm dev`, then open http://localhost:3000).
+
+Don't commit anything.
+```
+
+Prefer to do it yourself? The manual steps are below.
+
 ## 🌟 Features
 
 - ✨ **Elegant Minimalist Design** - Refined glassmorphism with muted gradient backgrounds and subtle pulse animations
