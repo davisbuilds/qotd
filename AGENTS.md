@@ -4,6 +4,14 @@ Guidance for coding agents working in this repository.
 
 Quote of the Day single-page app with auto-refresh, favorites, and dark-mode-first theming. Next.js 14, TypeScript, Tailwind CSS.
 
+## Documentation Map
+
+- `docs/system/ARCHITECTURE.md` — high-level flow, App Router structure, components, hooks, data, styling, hydration pattern, directory map.
+- `docs/system/FEATURES.md` — quote display, auto-refresh + manual refresh, favorites, dark mode, responsive design, API.
+- `docs/system/OPERATIONS.md` — local dev, commands, env vars, CI, editing quotes, deployment.
+- `docs/project/ROADMAP.md` — completed highlights and open areas.
+- `docs/project/GIT_HISTORY_POLICY.md` — merge strategy and branch hygiene.
+
 ## Commands
 
 ```bash
@@ -54,3 +62,8 @@ pnpm lint      # eslint
 4. **Favorites stored as full objects**: `useFavorites` persists entire quote objects (not just IDs) to localStorage. The `isLoaded` gate in the save effect prevents overwriting localStorage with empty state during SSR hydration.
 
 5. **Legacy Python app**: `old_python_app/` is archived and not part of the active codebase.
+
+## Working Agreement
+
+- **Push back before building.** If a request is incoherent or self-contradictory, or a spec/plan is vague or skips key decisions, stop and interview me — ask clarifying questions and confirm intent before writing code or changing files. Don't guess at scope or comply silently. (Clear, well-scoped requests don't need this.)
+- **Keep docs current.** After a significant change, PR, or completed spec/plan, update any now-stale reference docs under `docs/system/` (and `docs/project/ROADMAP.md`) so they match shipped behavior. Skip this for trivial changes.
