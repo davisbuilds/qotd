@@ -86,3 +86,8 @@ out/
 node_modules/
 *.tsbuildinfo
 next-env.d.ts
+
+# Node.js
+.pnpm-debug.log*
+.pnpm-store/
+npm-debug.log*
