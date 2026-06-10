@@ -16,9 +16,9 @@ dark-mode-first theming. All quote data is static JSON — no env vars or secret
 Do this, in order:
 1. Install deps. Prereqs: Node 18.17+ and pnpm. Run `pnpm install` from the repo
    root. Clone https://github.com/davisbuilds/qotd.git and cd in first if needed.
-2. Verify it builds: run `pnpm lint` then `pnpm build`. Both should pass. If either
-   fails, show me the error and stop.
-3. Report back: confirm lint + build passed, and give me the command to run it
+2. Verify it builds: run `pnpm lint`, `pnpm test`, then `pnpm build`. All should
+   pass. If any command fails, show me the error and stop.
+3. Report back: confirm lint + test + build passed, and give me the command to run it
    (`pnpm dev`, then open http://localhost:3000).
 
 Don't commit anything.
@@ -186,6 +186,7 @@ Then rebuild the application.
 - Elegant hover effects: translateY(-2px) with cubic-bezier(0.4, 0, 0.2, 1) easing
 - Each quote has a unique ID for favorites tracking
 - Custom CSS animations for subtle pulse effects and loading shimmer
+- CI runs `pnpm lint`, `pnpm test`, and `pnpm build` on pushes and pull requests to `main`
 
 ## Documentation
 

@@ -33,6 +33,7 @@ Use descriptive prefixes:
 - Include a short summary and test evidence.
 - Ensure quality checks pass before merge:
   - `pnpm lint`
+  - `pnpm test`
   - `pnpm build`
 
 ## Local Branch Cleanup

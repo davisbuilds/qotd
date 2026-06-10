@@ -16,6 +16,7 @@ pnpm dev            # Dev server with hot reload
 pnpm build          # Production build
 pnpm start          # Start production server
 pnpm lint           # ESLint
+pnpm test           # Dead-code check
 ```
 
 ## Environment Variables
@@ -24,9 +25,11 @@ No environment variables are required. The app runs entirely with local data.
 
 ## CI
 
-No CI pipeline. Quality gates are manual:
+GitHub Actions runs `.github/workflows/ci.yml` on pushes and pull requests to `main`.
+The workflow uses SHA-pinned actions and runs:
 
 - `pnpm lint`
+- `pnpm test`
 - `pnpm build`
 
 ## Editing Quotes

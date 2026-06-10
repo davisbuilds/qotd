@@ -20,6 +20,7 @@ pnpm dev       # dev server with hot reload
 pnpm build     # production build
 pnpm start     # production server
 pnpm lint      # eslint
+pnpm test      # dead-code check
 ```
 
 ## Key Files Reference
@@ -47,7 +48,7 @@ pnpm lint      # eslint
 
 ## Testing
 
-**Pre-push check**: Before pushing updates to the remote, run `pnpm lint` and `pnpm build`.
+**Pre-push check**: Before pushing updates to the remote, run `pnpm lint`, `pnpm test`, and `pnpm build`.
 
 **TDD**: Use red/green TDD for new features and major changes.
 
