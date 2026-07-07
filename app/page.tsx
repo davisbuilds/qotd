@@ -1,6 +1,6 @@
 'use client'
 
-import { useState, useEffect } from 'react'
+import { useState, useEffect, useSyncExternalStore } from 'react'
 import { Quote } from '@/types/quote'
 import QuoteDisplay from '@/components/QuoteDisplay'
 import RefreshButton from '@/components/RefreshButton'
@@ -20,7 +20,13 @@ export default function Home() {
   const [error, setError] = useState<string | null>(null)
   const [isTransitioning, setIsTransitioning] = useState(false)
   const [showFavorites, setShowFavorites] = useState(false)
-  const [mounted, setMounted] = useState(false)
+  // SSR-safe mount flag without a setState-in-effect: server + hydration render
+  // false, then the client snapshot flips it to true after hydration.
+  const mounted = useSyncExternalStore(
+    () => () => {},
+    () => true,
+    () => false,
+  )
   const { theme } = useTheme()
 
   const { favorites, isFavorite, toggleFavorite, removeFavorite, clearFavorites } = useFavorites()
@@ -58,17 +64,16 @@ export default function Home() {
   }
 
   useEffect(() => {
-    setMounted(true)
-  }, [])
-
-  useEffect(() => {
-    // Initial quote fetch
-    fetchQuote()
-
-    // Auto-refresh every 2 minutes
+    // Kick the initial fetch on a macrotask so its setState calls run in a
+    // callback rather than synchronously in the effect body, while the
+    // auto-refresh interval keeps the quote fresh every 2 minutes.
+    const initial = setTimeout(fetchQuote, 0)
     const interval = setInterval(fetchQuote, TIMING.AUTO_REFRESH_INTERVAL)
 
-    return () => clearInterval(interval)
+    return () => {
+      clearTimeout(initial)
+      clearInterval(interval)
+    }
   }, [])
 
   // Show loading skeleton until mounted to prevent hydration mismatch
