@@ -107,7 +107,6 @@ qotd/
 │   └── quotes.json                   # Converted JSON data (100+ quotes)
 ├── types/
 │   └── quote.ts                      # TypeScript type definitions
-├── old_python_app/                   # Archived Python desktop widget
 └── package.json
 ```
 
@@ -209,15 +208,3 @@ Built with ❤️ by **Davis & Claude**
 Inspired by great thinkers, entrepreneurs, and leaders featured in the quotes collection.
 
 ---
-
-### 🔄 Migration from Python Desktop Widget
-
-This project was originally a Python CustomTkinter desktop widget and has been completely refactored into a modern Next.js web application. The original Python code is archived in `old_python_app/` for reference.
-
-**Why the refactor?**
-- ✅ Cross-platform (works everywhere - desktop, mobile, tablet)
-- ✅ No installation required (just open in browser)
-- ✅ Easy to share (just send a link)
-- ✅ Modern tech stack with better tooling
-- ✅ Easier to deploy and maintain
-- ✅ More beautiful and performant UI

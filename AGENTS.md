@@ -62,8 +62,6 @@ pnpm test      # dead-code check
 
 4. **Favorites stored as full objects**: `useFavorites` persists entire quote objects (not just IDs) to localStorage. The `isLoaded` gate in the save effect prevents overwriting localStorage with empty state during SSR hydration.
 
-5. **Legacy Python app**: `old_python_app/` is archived and not part of the active codebase.
-
 ## Working Agreement
 
 - **Push back before building.** If a request is incoherent or self-contradictory, or a spec/plan is vague or skips key decisions, stop and interview me — ask clarifying questions and confirm intent before writing code or changing files. Don't guess at scope or comply silently. (Clear, well-scoped requests don't need this.)

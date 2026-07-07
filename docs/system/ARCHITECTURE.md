@@ -59,5 +59,4 @@ hooks/                    # useFavorites custom hook
 data/                     # quotes.json (200+ entries)
 types/                    # Quote type definition
 lib/                      # Constants and utilities
-old_python_app/           # Archived legacy Python widget
 ```
