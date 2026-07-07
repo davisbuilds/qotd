@@ -20,7 +20,7 @@ pnpm dev       # dev server with hot reload
 pnpm build     # production build
 pnpm start     # production server
 pnpm lint      # eslint
-pnpm test      # dead-code check
+pnpm test      # vitest unit suite + dead-code check
 ```
 
 ## Key Files Reference
