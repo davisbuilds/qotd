@@ -8,19 +8,24 @@ export function useFavorites() {
   const [favorites, setFavorites] = useState<Quote[]>([])
   const [isLoaded, setIsLoaded] = useState(false)
 
-  // Load favorites from localStorage on mount
+  // Load favorites from localStorage on mount. Deferring to a macrotask keeps
+  // the setState calls out of the synchronous effect body while still reading
+  // localStorage post-mount (avoiding an SSR hydration mismatch).
   useEffect(() => {
-    try {
-      const stored = localStorage.getItem(STORAGE_KEYS.FAVORITES)
-      if (stored) {
-        const parsed = JSON.parse(stored)
-        setFavorites(parsed)
+    const load = setTimeout(() => {
+      try {
+        const stored = localStorage.getItem(STORAGE_KEYS.FAVORITES)
+        if (stored) {
+          const parsed = JSON.parse(stored)
+          setFavorites(parsed)
+        }
+      } catch (error) {
+        console.error('Error loading favorites:', error)
+      } finally {
+        setIsLoaded(true)
       }
-    } catch (error) {
-      console.error('Error loading favorites:', error)
-    } finally {
-      setIsLoaded(true)
-    }
+    }, 0)
+    return () => clearTimeout(load)
   }, [])
 
   // Save favorites to localStorage whenever they change
