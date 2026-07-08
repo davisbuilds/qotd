@@ -19,7 +19,6 @@ const SKIP_DIRS = new Set([
   ".pnpm-store",
   ".venv",
   "docs",
-  "old_python_app",
 ]);
 
 const NEXTJS_CONVENTION_RE =

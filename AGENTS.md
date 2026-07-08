@@ -20,7 +20,7 @@ pnpm dev       # dev server with hot reload
 pnpm build     # production build
 pnpm start     # production server
 pnpm lint      # eslint
-pnpm test      # dead-code check
+pnpm test      # vitest unit suite + dead-code check
 ```
 
 ## Key Files Reference
@@ -61,8 +61,6 @@ pnpm test      # dead-code check
 3. **Intentional fetch transition delays**: `fetchQuote()` has a 400ms pre-fetch delay and 100ms post-fetch delay for smooth fade transitions. These are intentional UX choices, not bugs.
 
 4. **Favorites stored as full objects**: `useFavorites` persists entire quote objects (not just IDs) to localStorage. The `isLoaded` gate in the save effect prevents overwriting localStorage with empty state during SSR hydration.
-
-5. **Legacy Python app**: `old_python_app/` is archived and not part of the active codebase.
 
 ## Working Agreement
 

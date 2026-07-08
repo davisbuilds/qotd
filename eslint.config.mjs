@@ -10,7 +10,5 @@ export default defineConfig([
     "out/**",
     "build/**",
     "next-env.d.ts",
-    "old_python_app/**",
-    "qotd.egg-info/**",
   ]),
 ]);
