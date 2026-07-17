@@ -48,9 +48,8 @@ pnpm test      # vitest unit suite + dead-code check
 
 ## Testing
 
-**Pre-push check**: Before pushing updates to the remote, run `pnpm lint`, `pnpm test`, and `pnpm build`.
-
-**TDD**: Use red/green TDD for new features and major changes.
+- **Pre-push check**: Before pushing to the remote, run `pnpm lint`, `pnpm test`, and `pnpm build`.
+- **TDD**: red/green for new features, major refactors, and large changes. The red step must fail for the behavior you're about to fix — a test that fails only because the symbol doesn't exist yet is a stub, not a red test; write the signature first, then a test that fails on the behavior. Skip the red step for code with no behavior to assert, and cover it after. For smaller edits, still run the relevant existing tests before wrapping up.
 
 ## Implementation Gotchas
 
