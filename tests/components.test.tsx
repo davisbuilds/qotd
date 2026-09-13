@@ -7,7 +7,7 @@ vi.mock("@/components/ui/button", async () => import("../components/ui/button"))
 vi.mock("@/components/ui/card", async () => import("../components/ui/card"));
 
 vi.mock("next-themes", () => ({
-  useTheme: vi.fn(() => ({ theme: "dark", setTheme: vi.fn() })),
+  useTheme: vi.fn(() => ({ theme: "dark", themes: ["light", "dark"], setTheme: vi.fn() })),
 }));
 
 import { useTheme } from "next-themes";
@@ -18,9 +18,15 @@ import RefreshButton from "../components/RefreshButton";
 
 const mockedUseTheme = vi.mocked(useTheme);
 
+// next-themes' UseThemeProps requires `themes`; the app never overrides
+// next-themes' default list, so mocks mirror that default here.
+function mockTheme(theme: "dark" | "light") {
+  mockedUseTheme.mockReturnValue({ theme, themes: ["light", "dark"], setTheme: vi.fn() });
+}
+
 describe("FavoriteButton", () => {
   it("labels and styles a saved favorite in dark mode", () => {
-    mockedUseTheme.mockReturnValue({ theme: "dark", setTheme: vi.fn() });
+    mockTheme("dark");
 
     const markup = renderToStaticMarkup(
       <FavoriteButton isFavorite onClick={() => undefined} />,
@@ -32,7 +38,7 @@ describe("FavoriteButton", () => {
   });
 
   it("labels and styles an unsaved favorite in light mode", () => {
-    mockedUseTheme.mockReturnValue({ theme: "light", setTheme: vi.fn() });
+    mockTheme("light");
 
     const markup = renderToStaticMarkup(
       <FavoriteButton isFavorite={false} onClick={() => undefined} />,
@@ -46,7 +52,7 @@ describe("FavoriteButton", () => {
 
 describe("RefreshButton", () => {
   it("disables the button and spins the icon while loading", () => {
-    mockedUseTheme.mockReturnValue({ theme: "dark", setTheme: vi.fn() });
+    mockTheme("dark");
 
     const markup = renderToStaticMarkup(
       <RefreshButton isLoading onClick={() => undefined} />,
@@ -58,7 +64,7 @@ describe("RefreshButton", () => {
   });
 
   it("keeps the refresh action enabled when not loading", () => {
-    mockedUseTheme.mockReturnValue({ theme: "light", setTheme: vi.fn() });
+    mockTheme("light");
 
     const markup = renderToStaticMarkup(
       <RefreshButton isLoading={false} onClick={() => undefined} />,
@@ -72,7 +78,7 @@ describe("RefreshButton", () => {
 
 describe("QuoteDisplay", () => {
   it("renders quote text and author in the settled state", () => {
-    mockedUseTheme.mockReturnValue({ theme: "dark", setTheme: vi.fn() });
+    mockTheme("dark");
 
     const markup = renderToStaticMarkup(
       <QuoteDisplay
@@ -87,7 +93,7 @@ describe("QuoteDisplay", () => {
   });
 
   it("renders transition classes while a new quote fades in", () => {
-    mockedUseTheme.mockReturnValue({ theme: "light", setTheme: vi.fn() });
+    mockTheme("light");
 
     const markup = renderToStaticMarkup(
       <QuoteDisplay
