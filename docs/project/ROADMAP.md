@@ -1,17 +1,9 @@
 # Roadmap
 
-This is a lightweight snapshot, not a release contract.
+Quote of the Day remains a small quote-reading app with manual and automatic
+rotation, favorites, and theme choice. [Features](../system/FEATURES.md) owns
+observable behavior; source owns timing and implementation details.
 
-## Completed Highlights
-
-- Quote display with 700ms fade animations and responsive hero typography.
-- Favorites system with localStorage persistence and badge counter.
-- Dark mode default with seamless light mode toggle.
-- Auto-refresh (2 min) and manual refresh with rotation animation.
-- Refined glassmorphism and muted gradient backgrounds.
-- Responsive mobile-first design.
-- 200+ curated inspirational quotes.
-
-## Planned / Open Areas
-
-- Placeholder for future additions.
+No next feature has been selected here. A candidate belongs in
+[BACKLOG.md](BACKLOG.md) when it has a concrete reason and next step. Git and
+pull requests retain routine shipped detail.

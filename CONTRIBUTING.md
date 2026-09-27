@@ -1,57 +1,18 @@
 # Contributing
 
-This repository uses a squash-merge workflow to keep `main` history clean and readable.
+Focused bug fixes, quote corrections, accessibility improvements, tests, and
+documentation changes are welcome. Discuss substantial features, dependencies,
+integrations, or public API changes before major implementation. A clear item in
+[BACKLOG.md](docs/project/BACKLOG.md) can go straight to a focused PR; use an issue
+when persistent discussion or coordination helps.
 
-## Workflow
+Agent-assisted work is welcome. The submitter should understand the change's
+purpose, important behavior, tradeoffs, and verification limits. A prompting
+diary or human rewrite is not required.
 
-1. Sync local `main`.
-2. Create a feature branch from `main`.
-3. Make focused changes and commit normally.
-4. Push branch and open a pull request.
-5. Merge with **Squash and merge** after quality checks pass.
-6. Let GitHub auto-delete the merged remote branch.
-7. Prune merged local branches periodically.
-
-## Branch Naming
-
-Use descriptive prefixes:
-
-- `feat/<name>`
-- `fix/<name>`
-- `chore/<name>`
-- `docs/<name>`
-
-## Commit Guidance
-
-- Keep commits logical and atomic while working on the branch.
-- Use clear, imperative commit messages.
-- It is fine to have multiple commits in one PR; squash merge will combine them on `main`.
-
-## Pull Request Expectations
-
-- Keep PR scope tight (one objective per PR).
-- Include a short summary and test evidence.
-- Ensure quality checks pass before merge:
-  - `pnpm lint`
-  - `pnpm test`
-  - `pnpm build`
-
-## Local Branch Cleanup
-
-Run periodically:
-
-```bash
-git fetch --prune
-git branch --merged main | grep -v ' main$' | xargs -n 1 git branch -d
-```
-
-## Documentation Hygiene
-
-- Do not hardcode volatile counts in docs.
-- Prefer executable source-of-truth references (for example, `pnpm lint`, `README.md`).
-
-## Related Docs
-
-- Git history and branch hygiene config: `docs/project/GIT_HISTORY_POLICY.md`
-- Agent implementation guidance: `AGENTS.md`
-- Project onboarding: `README.md`
+Start with [README.md](README.md) and
+[Operations](docs/system/OPERATIONS.md) for setup and checks. Keep PRs focused,
+explain their user-visible effect, and state what was verified or could not be
+checked. The [Git history policy](docs/project/GIT_HISTORY_POLICY.md) records
+squash-only merges; the maintainer merges after applicable checks pass. Write a
+clear PR title because it becomes the commit title on `main`.
