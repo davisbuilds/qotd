@@ -195,6 +195,7 @@ Then rebuild the application.
 - Feature reference: [docs/system/FEATURES.md](docs/system/FEATURES.md)
 - Setup and operations: [docs/system/OPERATIONS.md](docs/system/OPERATIONS.md)
 - Product roadmap snapshot: [docs/project/ROADMAP.md](docs/project/ROADMAP.md)
+- Future work: [docs/project/BACKLOG.md](docs/project/BACKLOG.md)
 - Git history and branch policy: [docs/project/GIT_HISTORY_POLICY.md](docs/project/GIT_HISTORY_POLICY.md)
 
 ## 📜 License

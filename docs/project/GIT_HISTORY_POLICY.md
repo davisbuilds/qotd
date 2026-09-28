@@ -1,6 +1,7 @@
 # Git History and Branch Hygiene
 
-Last updated: February 22, 2026
+Live merge settings verified 2026-09-27 with `gh api repos/davisbuilds/qotd`.
+Query GitHub again before relying on current remote settings.
 
 ## Repository Merge Settings
 
@@ -25,14 +26,14 @@ Squash-merge only. All other merge strategies are disabled at the repository lev
 
 ## CI Gates
 
-This project does not have a CI pipeline. Quality gates before merge:
-
-- `pnpm lint`
-- `pnpm build`
+The tracked [CI workflow](../../.github/workflows/ci.yml) runs lint, tests, and
+build on PRs and pushes to `main`. Contributor checks are in
+[CONTRIBUTING.md](../../CONTRIBUTING.md).
 
 ## Current Limitation
 
-`main` branch protection is not enabled because GitHub returned `403` for branch protection APIs on this private repository tier. Until upgraded, enforce checks and review discipline by team convention.
+This repository is public. Query `gh api repos/davisbuilds/qotd/branches/main/protection`
+for effective branch protection; the merge-settings query above does not establish it.
 
 ## Recommended Ongoing Hygiene
 

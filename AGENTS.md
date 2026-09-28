@@ -2,14 +2,15 @@
 
 Guidance for coding agents working in this repository.
 
-Quote of the Day single-page app with auto-refresh, favorites, and dark-mode-first theming. Next.js 14, TypeScript, Tailwind CSS.
+Quote of the Day single-page app with auto-refresh, favorites, and dark-mode-first theming. Next.js 16, TypeScript, Tailwind CSS.
 
 ## Documentation Map
 
 - `docs/system/ARCHITECTURE.md` — high-level flow, App Router structure, components, hooks, data, styling, hydration pattern, directory map.
 - `docs/system/FEATURES.md` — quote display, auto-refresh + manual refresh, favorites, dark mode, responsive design, API.
 - `docs/system/OPERATIONS.md` — local dev, commands, env vars, CI, editing quotes, deployment.
-- `docs/project/ROADMAP.md` — completed highlights and open areas.
+- `docs/project/ROADMAP.md` — selected direction and established product scope.
+- `docs/project/BACKLOG.md` — future-only durable follow-ups; entries can be delegated directly.
 - `docs/project/GIT_HISTORY_POLICY.md` — merge strategy and branch hygiene.
 
 ## Commands
@@ -64,7 +65,7 @@ pnpm test      # vitest unit suite + dead-code check
 ## Working Agreement
 
 - **Push back before building.** If a request is incoherent or self-contradictory, or a spec/plan is vague or skips key decisions, stop and interview me — ask clarifying questions and confirm intent before writing code or changing files. Don't guess at scope or comply silently. (Clear, well-scoped requests don't need this.)
-- **Keep docs current.** After a significant change, PR, or completed spec/plan, update any now-stale reference docs under `docs/system/` (and `docs/project/ROADMAP.md`) so they match shipped behavior. Skip this for trivial changes.
+- **Keep docs current.** Update the owning reference when a change alters its stated behavior, procedure, contract, or direction. Reconcile an affected Backlog entry as work lands; update Roadmap when selected direction changes.
 - **Commit logically.** Commit completed work in coherent chunks as you proceed. Push only when explicitly asked.
-- **Log durable follow-ups in `BACKLOG.md`.** Note design gaps, tech debt, or better approaches you spot mid-task in `docs/project/BACKLOG.md`; fix simple, quick, or blocking issues inline and call them out. Add an item only for recurring friction, meaningful risk/cost, an unresolved decision, or a concrete trigger. Record **What / Why or evidence / Next or Revisit when**; keep the backlog future-only, use the capability-owning repository as canonical for cross-repo work, date/source volatile claims (or label a hypothesis), and move shipped work to `docs/project/ROADMAP.md`. Review after a significant shipped slice or at least quarterly.
+- **Log durable follow-ups in `BACKLOG.md`.** Fix simple issues inline. For durable work, record What, Why or evidence, and a Next action or Revisit trigger; date volatile claims or mark them as hypotheses. Agents may execute entries directly. Use issues when discussion or coordination helps, keep one detailed owner, and reconcile affected entries as work lands.
 - **Re-ground after compaction.** A compaction summary loses precise paths, context, and verification state — before continuing, re-read this project's `AGENTS.md`, its reference docs, and recent commits.
