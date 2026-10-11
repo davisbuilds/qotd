@@ -30,10 +30,19 @@ The tracked [CI workflow](../../.github/workflows/ci.yml) runs lint, tests, and
 build on PRs and pushes to `main`. Contributor checks are in
 [CONTRIBUTING.md](../../CONTRIBUTING.md).
 
-## Current Limitation
+## Branch Protection
 
-This repository is public. Query `gh api repos/davisbuilds/qotd/branches/main/protection`
-for effective branch protection; the merge-settings query above does not establish it.
+Verified 2026-10-11 with
+`gh api repos/davisbuilds/qotd/branches/main/protection`:
+`main` requires these GitHub Actions checks before merge:
+
+- `Lint, test, and build` (CI)
+- `check` (Publication Hygiene)
+
+Branches need not be up to date with `main`, no reviews are required, and admins
+are not enforced. Required checks match job names, so rename a job and its entry
+in the protection rule together. `Workflow Security Audit` is path-filtered and
+deliberately not required: a required check that never runs blocks every merge.
 
 ## Recommended Ongoing Hygiene
 
