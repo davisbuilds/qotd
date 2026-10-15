@@ -15,11 +15,11 @@
     "test:unit": "vitest run"
   },
   "dependencies": {
-    "@radix-ui/react-slot": "^1.4.0",
+    "@radix-ui/react-slot": "^1.5.0",
     "class-variance-authority": "^0.7.1",
     "clsx": "^2.1.1",
-    "lucide-react": "^1.52.0",
-    "next": "16.3.8",
+    "lucide-react": "^1.55.0",
+    "next": "16.4.0",
     "next-themes": "^0.4.6",
     "react": "19.3.0",
     "react-dom": "19.3.0",
@@ -28,18 +28,18 @@
   },
   "devDependencies": {
     "@tailwindcss/postcss": "^4.3.3",
-    "@types/node": "^26.6.4",
+    "@types/node": "^26.6.5",
     "@types/react": "^19.3.0",
     "@types/react-dom": "^19",
     "autoprefixer": "^10.6.1",
-    "baseline-browser-mapping": "^2.11.27",
+    "baseline-browser-mapping": "^2.11.28",
     "browserslist": "^4.29.3",
-    "caniuse-lite": "^1.0.30001814",
+    "caniuse-lite": "^1.0.30001815",
     "eslint": "^10",
-    "eslint-config-next": "16.3.8",
-    "postcss": "^8.5.29",
+    "eslint-config-next": "16.4.0",
+    "postcss": "^8.5.30",
     "tailwindcss": "^4.3.3",
     "typescript": "^6.0.3",
-    "vitest": "^5.0.3"
+    "vitest": "^5.0.4"
   }
 }
