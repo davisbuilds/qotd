@@ -64,6 +64,14 @@ pnpm test      # vitest unit suite + dead-code check
 
 ## Working Agreement
 
+- **Plan and hand off work.** Use the accepted conversation or task as the
+  contract when it gives enough detail. Save a design, spec, or plan when it
+  helps people coordinate, agree on acceptance criteria, or sequence execution.
+  For unfinished work changing agents, sessions, or devices, leave a concise
+  handoff when the receiving context is incomplete. Commit audience-appropriate
+  documents needed for shared execution and keep their status current.
+  Before retiring execution docs, preserve lasting decisions and open work in
+  maintained references and repair incoming links.
 - **Push back before building.** If a request is incoherent or self-contradictory, or a spec/plan is vague or skips key decisions, stop and interview me — ask clarifying questions and confirm intent before writing code or changing files. Don't guess at scope or comply silently. (Clear, well-scoped requests don't need this.)
 - **Keep docs current.** Update the owning reference when a change alters its stated behavior, procedure, contract, or direction. Reconcile an affected Backlog entry as work lands; update Roadmap when selected direction changes.
 - **Commit logically.** Commit completed work in coherent chunks as you proceed. Push only when explicitly asked.
