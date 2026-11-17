@@ -64,6 +64,9 @@ pnpm test      # vitest unit suite + dead-code check
 
 ## Working Agreement
 
+- **Push back before building.** If a request is incoherent or self-contradictory, or a spec/plan is vague or skips key decisions, stop and interview me — ask clarifying questions and confirm intent before writing code or changing files. Don't guess at scope or comply silently. (Clear, well-scoped requests don't need this.)
+- **Log durable follow-ups in `BACKLOG.md`.** Fix simple issues inline. For durable work, record What, Why or evidence, and a Next action or Revisit trigger; date volatile claims or mark them as hypotheses. Agents may execute entries directly. Use issues when discussion or coordination helps, keep one detailed owner, and reconcile affected entries as work lands.
+- **Keep docs current.** Update the owning reference when a change alters its stated behavior, procedure, contract, or direction. Reconcile an affected Backlog entry as work lands; update Roadmap when selected direction changes.
 - **Plan and hand off work.** Use the accepted conversation or task as the
   contract when it gives enough detail. Save a design, spec, or plan when it
   helps people coordinate, agree on acceptance criteria, or sequence execution.
@@ -72,8 +75,5 @@ pnpm test      # vitest unit suite + dead-code check
   documents needed for shared execution and keep their status current.
   Before retiring execution docs, preserve lasting decisions and open work in
   maintained references and repair incoming links.
-- **Push back before building.** If a request is incoherent or self-contradictory, or a spec/plan is vague or skips key decisions, stop and interview me — ask clarifying questions and confirm intent before writing code or changing files. Don't guess at scope or comply silently. (Clear, well-scoped requests don't need this.)
-- **Keep docs current.** Update the owning reference when a change alters its stated behavior, procedure, contract, or direction. Reconcile an affected Backlog entry as work lands; update Roadmap when selected direction changes.
 - **Commit logically.** Commit completed work in coherent chunks as you proceed. Push only when explicitly asked.
-- **Log durable follow-ups in `BACKLOG.md`.** Fix simple issues inline. For durable work, record What, Why or evidence, and a Next action or Revisit trigger; date volatile claims or mark them as hypotheses. Agents may execute entries directly. Use issues when discussion or coordination helps, keep one detailed owner, and reconcile affected entries as work lands.
 - **Re-ground after compaction.** A compaction summary loses precise paths, context, and verification state — before continuing, re-read this project's `AGENTS.md`, its reference docs, and recent commits.
