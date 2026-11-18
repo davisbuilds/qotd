@@ -1,76 +1,55 @@
 # AGENTS.md
 
-Guidance for coding agents working in this repository.
-
-Quote of the Day single-page app with auto-refresh, favorites, and dark-mode-first theming. Next.js 16, TypeScript, Tailwind CSS.
+Quote of the Day: a single-page Next.js app with auto-refresh, favorites, and
+dark-mode-first theming. Quotes come from `data/quotes.json` (a flat array of
+`{ id, quote, author }`, edited directly; no CMS) through one API route.
 
 ## Documentation Map
 
-- `docs/system/ARCHITECTURE.md` — high-level flow, App Router structure, components, hooks, data, styling, hydration pattern, directory map.
-- `docs/system/FEATURES.md` — quote display, auto-refresh + manual refresh, favorites, dark mode, responsive design, API.
-- `docs/system/OPERATIONS.md` — local dev, commands, env vars, CI, editing quotes, deployment.
-- `docs/project/ROADMAP.md` — selected direction and established product scope.
-- `docs/project/BACKLOG.md` — future-only durable follow-ups; entries can be delegated directly.
-- `docs/project/GIT_HISTORY_POLICY.md` — merge strategy and branch hygiene.
+- `docs/system/ARCHITECTURE.md`: flow, components, hooks, data, styling, hydration pattern.
+- `docs/system/FEATURES.md`: quote display, refresh, favorites, theming, API.
+- `docs/system/OPERATIONS.md`: local dev, env vars, CI, editing quotes, deployment.
+- `docs/project/ROADMAP.md`, `docs/project/BACKLOG.md`: direction and product scope; future-only follow-ups.
+- `docs/project/GIT_HISTORY_POLICY.md`: merge settings, required checks, branch hygiene.
 
-## Commands
+## Verification
 
-```bash
-pnpm install   # install dependencies
-pnpm dev       # dev server with hot reload
-pnpm build     # production build
-pnpm start     # production server
-pnpm lint      # eslint
-pnpm test      # vitest unit suite + dead-code check
-```
-
-## Key Files Reference
-
-| Purpose | Location |
-|---------|----------|
-| Main page (quote state, fetch, auto-refresh, favorites) | `app/page.tsx` |
-| Random quote API (reads `quotes.json`, no-cache headers) | `app/api/quotes/random/route.ts` |
-| Quote data (single source of truth) | `data/quotes.json` |
-| Favorites hook (localStorage persistence) | `hooks/useFavorites.ts` |
-| Quote display with fade transitions | `components/QuoteDisplay.tsx` |
-| Favorites modal | `components/FavoritesView.tsx` |
-| Theme toggle | `components/ThemeToggle.tsx` |
-| Theme provider (next-themes wrapper) | `components/ThemeProvider.tsx` |
-| Timing constants and storage keys | `lib/constants.ts` |
-| Quote type definition | `types/quote.ts` |
-
-## Architecture
-
-- **Single client page** (`app/page.tsx`) orchestrates everything: fetch, state, favorites, auto-refresh (2 min interval)
-- **API route** returns a random quote from `data/quotes.json` with `force-dynamic` and explicit no-cache headers
-- **Favorites** stored as full quote objects in localStorage under `qotd-favorites`
-- **Theme**: next-themes with `defaultTheme="dark"` and system detection enabled
-- **Quote data**: flat JSON array of `{ id, quote, author }` — edit the file directly, no CMS
-
-## Testing
-
-- **Pre-push check**: Before pushing to the remote, run `pnpm lint`, `pnpm test`, and `pnpm build`.
-- **TDD**: red/green for new features, major refactors, and large changes. The red step must fail for the behavior you're about to fix — a test that fails only because the symbol doesn't exist yet is a stub, not a red test; write the signature first, then a test that fails on the behavior. Skip the red step for code with no behavior to assert, and cover it after. For smaller edits, still run the relevant existing tests before wrapping up.
+Run the CI gate before pushing: `pnpm lint && pnpm test && pnpm build`
+(`pnpm test` is the Vitest suite plus the dead-code check).
 
 ## Implementation Gotchas
 
-1. **Hydration: use `theme !== 'light'`, never `=== 'dark'`**: During hydration, `theme` is `undefined`. Since `defaultTheme` is `"dark"`, `undefined !== 'light'` correctly defaults to dark styling and prevents hydration mismatch. This pattern is used in 5 components — maintain it in any new component that reads theme.
+1. **Hydration: use `theme !== 'light'`, never `=== 'dark'`.** During hydration `theme` is `undefined`; with `defaultTheme="dark"`, `undefined !== 'light'` defaults to dark styling and avoids a hydration mismatch. Keep this pattern in every component that reads theme.
+2. **Mounted guard before theme-dependent UI.** `app/page.tsx` and `ThemeToggle.tsx` render a skeleton until `mounted`; new theme-dependent components must do the same.
+3. **The fetch delays are intentional.** `fetchQuote()` waits 400 ms before and 100 ms after fetching for the fade transition. They are UX choices, not bugs.
+4. **Favorites are stored as full quote objects**, not IDs. The `isLoaded` gate in `useFavorites`'s save effect stops hydration from overwriting localStorage with an empty list.
 
-2. **Mounted guard before rendering theme-dependent UI**: `app/page.tsx` and `ThemeToggle.tsx` gate on a `mounted` state to render a skeleton during SSR, preventing hydration mismatch with next-themes. New components that depend on theme must follow the same pattern.
+## Git
 
-3. **Intentional fetch transition delays**: `fetchQuote()` has a 400ms pre-fetch delay and 100ms post-fetch delay for smooth fade transitions. These are intentional UX choices, not bugs.
-
-4. **Favorites stored as full objects**: `useFavorites` persists entire quote objects (not just IDs) to localStorage. The `isLoaded` gate in the save effect prevents overwriting localStorage with empty state during SSR hydration.
+Squash-merge only, after the required `Lint, test, and build` and `check`
+checks pass. **Merging to `main` deploys production on Vercel**, so a successful
+Vercel preview deployment of the PR head is required before merging.
 
 ## Working Agreement
 
-- **Push back before building.** If a request is incoherent or self-contradictory, or a spec/plan is vague or skips key decisions, stop and interview me — ask clarifying questions and confirm intent before writing code or changing files. Don't guess at scope or comply silently. (Clear, well-scoped requests don't need this.)
-- **Log durable follow-ups in `BACKLOG.md`.** Fix simple issues inline. For durable work, record What, Why or evidence, and a Next action or Revisit trigger; date volatile claims or mark them as hypotheses. Agents may execute entries directly. Use issues when discussion or coordination helps, keep one detailed owner, and reconcile affected entries as work lands.
-- **Keep docs current.** Update the owning reference when a change alters its stated behavior, procedure, contract, or direction. Reconcile an affected Backlog entry as work lands; update Roadmap when selected direction changes.
+- **Clarify before building** when a request is vague, contradictory, or skips a
+  key decision; clear, well-scoped requests need no interview.
+- **Fix small issues now; backlog the rest.** Fix simple, quick, or blocking
+  issues in this repo as part of the current change and call them out. Record in
+  `docs/project/BACKLOG.md` only what can't be finished now or needs the
+  maintainer's decision; don't open a branch or PR just for a backlog entry.
+- **Keep docs current** when a change makes a documented contract, boundary,
+  procedure, or direction stale.
 - **Plan and hand off work.** Reuse clear task context. Save planning docs when
   decisions, acceptance, or coordination need persistence. Leave a brief
   handoff only when needed to resume unfinished work. Commit shared docs and
   keep status current. Before archiving, preserve lasting decisions and open
   work in maintained docs and repair links.
-- **Commit logically.** Commit completed work in coherent chunks as you proceed. Push only when explicitly asked.
-- **Re-ground after compaction.** A compaction summary loses precise paths, context, and verification state — before continuing, re-read this project's `AGENTS.md`, its reference docs, and recent commits.
+- **Commit and push.** Commit coherent chunks, staging by explicit path. Push
+  your task branch and open a PR once the work is complete and the local gate
+  passes; don't push directly to `main`.
+- **Merge** only under the standing merge authority in the maintainer's
+  workspace instructions, or when the maintainer asks. Without those
+  instructions in context, leave the PR for the maintainer.
+- **Re-ground after compaction** in source, this file, the owning docs, and
+  recent commits. A summary and your own earlier proposals are not user approval.
