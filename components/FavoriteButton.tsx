@@ -36,7 +36,6 @@ export default function FavoriteButton({ isFavorite, onClick }: FavoriteButtonPr
         strokeWidth={1.5}
       />
 
-      {/* Subtle hover ring */}
       <span
         className={cn(
           "absolute inset-0 rounded-full scale-110 group-hover:scale-125 transition-all duration-300 ease-out opacity-0 group-hover:opacity-100",

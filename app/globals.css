@@ -134,7 +134,6 @@
     inset 0 1px 0 0 rgba(255, 255, 255, 0.05);
 }
 
-/* Quotation marks */
 .quote-mark {
   font-family: Georgia, serif;
   font-size: 4rem;
@@ -155,7 +154,6 @@
   right: -1rem;
 }
 
-/* Elegant hover effect */
 .elegant-hover {
   transition: all 0.3s cubic-bezier(0.4, 0, 0.2, 1);
 }
@@ -168,7 +166,6 @@
   transform: translateY(0);
 }
 
-/* Loading shimmer animation */
 .loading-shimmer {
   animation: loading-shimmer 2s ease-in-out infinite;
 }

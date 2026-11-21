@@ -21,7 +21,6 @@ export default function QuoteDisplay({ quote, isTransitioning }: QuoteDisplayPro
         isTransitioning ? 'opacity-0 translate-y-8 scale-95' : 'opacity-100 translate-y-0 scale-100'
       )}
     >
-      {/* Decorative quotation marks */}
       <span className={cn("quote-mark quote-mark-open", isDark ? 'text-white' : 'text-black')} aria-hidden="true">&ldquo;</span>
       <span className={cn("quote-mark quote-mark-close", isDark ? 'text-white' : 'text-black')} aria-hidden="true">&rdquo;</span>
 
@@ -34,7 +33,6 @@ export default function QuoteDisplay({ quote, isTransitioning }: QuoteDisplayPro
           {quote.quote}
         </p>
 
-        {/* Visual separator */}
         <div className="flex justify-center">
           <div className={cn(
             "h-[1px] w-12",
@@ -44,7 +42,6 @@ export default function QuoteDisplay({ quote, isTransitioning }: QuoteDisplayPro
           )} />
         </div>
 
-        {/* Author attribution */}
         <footer className="flex flex-col items-center space-y-2">
           <cite className={cn(
             "not-italic text-sm md:text-base lg:text-lg font-light tracking-wide",
