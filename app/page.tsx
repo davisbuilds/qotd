@@ -111,7 +111,6 @@ export default function Home() {
       "min-h-screen flex items-center justify-center p-6 md:p-8 relative overflow-hidden",
       isDark ? 'elegant-bg-dark' : 'elegant-bg-light'
     )}>
-      {/* Subtle ambient light effect */}
       <div className="absolute inset-0 bg-gradient-radial from-primary/5 via-transparent to-transparent pointer-events-none" />
 
       {/* Theme toggle and favorites - top right */}
@@ -137,7 +136,6 @@ export default function Home() {
         <ThemeToggle />
       </div>
 
-      {/* Main content container */}
       <div className="w-full max-w-4xl mx-auto relative z-10">
         {/* Header - elegant and minimal */}
         <div className="text-center mb-16 md:mb-20 px-16 md:px-0">
@@ -168,7 +166,6 @@ export default function Home() {
           "px-8 py-16 md:px-16 md:py-20 rounded-2xl relative",
           isDark ? 'refined-glass-dark' : 'refined-glass-light'
         )}>
-          {/* Content */}
           <div className="min-h-[280px] md:min-h-[320px] flex items-center justify-center">
             {isLoading && !quote ? (
               <div className="text-center">
@@ -191,7 +188,6 @@ export default function Home() {
             ) : null}
           </div>
 
-          {/* Buttons - bottom center */}
           <div className="flex justify-center gap-4 mt-12">
             <FavoriteButton
               isFavorite={quote ? isFavorite(quote.id) : false}
