@@ -15,7 +15,8 @@ dark-mode-first theming. Quotes come from `data/quotes.json` (a flat array of
 ## Verification
 
 Run the CI gate before pushing: `pnpm lint && pnpm test && pnpm build`
-(`pnpm test` is the Vitest suite plus the dead-code check).
+(`pnpm lint` is the comment ratchet plus ESLint; `pnpm test` is the Vitest
+suite plus the dead-code check).
 
 ## Implementation Gotchas
 
@@ -34,6 +35,12 @@ Vercel preview deployment of the PR head is required before merging.
 
 - **Clarify before building** when a request is vague, contradictory, or skips a
   key decision; clear, well-scoped requests need no interview.
+- **Comments.** Don't add code comments. The one exception is a decision record:
+  start it with `WHY:` and state a non-obvious reason the code can't express.
+  Never justify a shortcut in a comment; fix it or record it in
+  `docs/project/BACKLOG.md`. `python3 scripts/check_comments.py` enforces a
+  ratchet: after deleting comments run it with `--update`, and never raise a
+  count in `.comment-baseline.json`.
 - **Fix small issues now; backlog the rest.** Fix simple, quick, or blocking
   issues in this repo as part of the current change and call them out. Record in
   `docs/project/BACKLOG.md` only what can't be finished now or needs the

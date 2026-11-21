@@ -15,8 +15,8 @@ Open `http://localhost:3000`.
 pnpm dev            # Dev server with hot reload
 pnpm build          # Production build
 pnpm start          # Start production server
-pnpm lint           # ESLint
-pnpm test           # Dead-code check
+pnpm lint           # Comment ratchet, then ESLint
+pnpm test           # Vitest suite, then the dead-code check
 ```
 
 ## Environment Variables
@@ -28,7 +28,7 @@ No environment variables are required. The app runs entirely with local data.
 GitHub Actions runs `.github/workflows/ci.yml` on pushes and pull requests to `main`.
 The workflow uses SHA-pinned actions and runs:
 
-- `pnpm lint`
+- `pnpm lint` (comment ratchet, then ESLint)
 - `pnpm test`
 - `pnpm build`
 
