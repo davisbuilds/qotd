@@ -9,7 +9,7 @@
     "dev": "next dev",
     "build": "next build",
     "start": "next start",
-    "lint": "eslint .",
+    "lint": "python3 scripts/check_comments.py && eslint .",
     "test:dead-code": "node scripts/dead-code-check.mjs",
     "test": "pnpm test:unit && pnpm test:dead-code",
     "test:unit": "vitest run"

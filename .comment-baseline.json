@@ -1,0 +1,20 @@
+{
+  "version": 1,
+  "exclude": [],
+  "files": {
+    ".github/dependabot.yml": 3,
+    ".github/workflows/zizmor.yml": 8,
+    "app/api/quotes/random/route.ts": 3,
+    "app/globals.css": 7,
+    "app/page.tsx": 17,
+    "components/FavoriteButton.tsx": 2,
+    "components/QuoteDisplay.tsx": 5,
+    "components/RefreshButton.tsx": 2,
+    "components/ThemeToggle.tsx": 1,
+    "hooks/useFavorites.ts": 4,
+    "pnpm-workspace.yaml": 3,
+    "scripts/check_publication_hygiene.py": 4,
+    "scripts/validate-quotes.py": 2,
+    "tests/components.test.tsx": 2
+  }
+}
