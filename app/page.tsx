@@ -72,7 +72,6 @@ export default function Home() {
     }
   }, [])
 
-  // WHY: render the skeleton until mounted so server and hydration markup match.
   if (!mounted) {
     return (
       <main className="min-h-screen elegant-bg-dark flex items-center justify-center p-6 md:p-8 relative overflow-hidden">
