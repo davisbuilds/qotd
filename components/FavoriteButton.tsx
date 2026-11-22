@@ -11,7 +11,7 @@ interface FavoriteButtonProps {
 
 export default function FavoriteButton({ isFavorite, onClick }: FavoriteButtonProps) {
   const { theme } = useTheme()
-  // Default to dark mode during hydration to match defaultTheme
+  // WHY: theme is undefined during hydration; treat that as dark to match defaultTheme.
   const isDark = theme !== 'light'
 
   return (

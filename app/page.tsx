@@ -20,8 +20,8 @@ export default function Home() {
   const [error, setError] = useState<string | null>(null)
   const [isTransitioning, setIsTransitioning] = useState(false)
   const [showFavorites, setShowFavorites] = useState(false)
-  // SSR-safe mount flag without a setState-in-effect: server + hydration render
-  // false, then the client snapshot flips it to true after hydration.
+  // WHY: an SSR-safe mount flag without a setState-in-effect: server and hydration
+  // render false, then the client snapshot flips it to true after hydration.
   const mounted = useSyncExternalStore(
     () => () => {},
     () => true,
@@ -31,7 +31,7 @@ export default function Home() {
 
   const { favorites, isFavorite, toggleFavorite, removeFavorite, clearFavorites } = useFavorites()
 
-  // Default to dark mode during hydration to match defaultTheme
+  // WHY: theme is undefined during hydration; treat that as dark to match defaultTheme.
   const isDark = theme !== 'light'
 
   const fetchQuote = async () => {
@@ -39,10 +39,8 @@ export default function Home() {
       setIsTransitioning(true)
       setError(null)
 
-      // Small delay for transition
       await new Promise(resolve => setTimeout(resolve, 400))
 
-      // Fetch quote
       const response = await fetch('/api/quotes/random')
       if (!response.ok) {
         throw new Error('Failed to fetch quote')
@@ -52,7 +50,6 @@ export default function Home() {
       setQuote(data)
       setIsLoading(false)
 
-      // Small delay before fade-in
       await new Promise(resolve => setTimeout(resolve, 100))
       setIsTransitioning(false)
     } catch (err) {
@@ -64,9 +61,8 @@ export default function Home() {
   }
 
   useEffect(() => {
-    // Kick the initial fetch on a macrotask so its setState calls run in a
-    // callback rather than synchronously in the effect body, while the
-    // auto-refresh interval keeps the quote fresh every 2 minutes.
+    // WHY: kick the initial fetch on a macrotask so its setState calls run in a
+    // callback rather than synchronously in the effect body.
     const initial = setTimeout(fetchQuote, 0)
     const interval = setInterval(fetchQuote, TIMING.AUTO_REFRESH_INTERVAL)
 
@@ -76,7 +72,7 @@ export default function Home() {
     }
   }, [])
 
-  // Show loading skeleton until mounted to prevent hydration mismatch
+  // WHY: render the skeleton until mounted so server and hydration markup match.
   if (!mounted) {
     return (
       <main className="min-h-screen elegant-bg-dark flex items-center justify-center p-6 md:p-8 relative overflow-hidden">
@@ -113,7 +109,6 @@ export default function Home() {
     )}>
       <div className="absolute inset-0 bg-gradient-radial from-primary/5 via-transparent to-transparent pointer-events-none" />
 
-      {/* Theme toggle and favorites - top right */}
       <div className="absolute top-6 right-6 md:top-8 md:right-8 z-20 flex gap-2">
         <Button
           onClick={() => setShowFavorites(true)}
@@ -137,7 +132,6 @@ export default function Home() {
       </div>
 
       <div className="w-full max-w-4xl mx-auto relative z-10">
-        {/* Header - elegant and minimal */}
         <div className="text-center mb-16 md:mb-20 px-16 md:px-0">
           <h1 className={cn(
             "text-2xl md:text-4xl font-bold flex items-center justify-center gap-1.5 md:gap-2 mb-3",
@@ -161,7 +155,6 @@ export default function Home() {
           </p>
         </div>
 
-        {/* Quote container with refined glass effect */}
         <div className={cn(
           "px-8 py-16 md:px-16 md:py-20 rounded-2xl relative",
           isDark ? 'refined-glass-dark' : 'refined-glass-light'

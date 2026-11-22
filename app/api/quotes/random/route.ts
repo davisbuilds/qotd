@@ -2,7 +2,6 @@ import { NextResponse } from 'next/server';
 import { Quote } from '@/types/quote';
 import quotesData from '@/data/quotes.json';
 
-// Singleton pattern: cache quotes in memory to avoid re-parsing JSON on every request
 let cachedQuotes: Quote[] | null = null;
 
 function getQuotes(): Quote[] {
@@ -12,7 +11,6 @@ function getQuotes(): Quote[] {
   return cachedQuotes;
 }
 
-// Force dynamic rendering - prevent static optimization
 export const dynamic = 'force-dynamic';
 
 export async function GET() {
@@ -29,7 +27,6 @@ export async function GET() {
     const randomIndex = Math.floor(Math.random() * quotes.length);
     const randomQuote = quotes[randomIndex];
 
-    // Return response with no-cache headers to prevent caching
     return NextResponse.json(randomQuote, {
       headers: {
         'Cache-Control': 'no-store, no-cache, must-revalidate, proxy-revalidate',

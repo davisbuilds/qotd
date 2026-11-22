@@ -11,7 +11,7 @@ interface QuoteDisplayProps {
 
 export default function QuoteDisplay({ quote, isTransitioning }: QuoteDisplayProps) {
   const { theme } = useTheme()
-  // Default to dark mode during hydration to match defaultTheme
+  // WHY: theme is undefined during hydration; treat that as dark to match defaultTheme.
   const isDark = theme !== 'light'
 
   return (
@@ -25,7 +25,6 @@ export default function QuoteDisplay({ quote, isTransitioning }: QuoteDisplayPro
       <span className={cn("quote-mark quote-mark-close", isDark ? 'text-white' : 'text-black')} aria-hidden="true">&rdquo;</span>
 
       <blockquote className="text-center space-y-8 md:space-y-10 relative z-10">
-        {/* The quote text - hero element */}
         <p className={cn(
           "text-2xl md:text-3xl lg:text-4xl xl:text-5xl font-light leading-relaxed tracking-tight px-4 md:px-8 max-w-4xl mx-auto",
           isDark ? 'text-white/90' : 'text-black/90'

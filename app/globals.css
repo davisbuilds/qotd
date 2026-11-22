@@ -61,7 +61,6 @@
   }
 }
 
-/* Elegant background for light mode */
 .elegant-bg-light {
   background: linear-gradient(135deg,
     hsl(0, 0%, 99%) 0%,
@@ -80,7 +79,6 @@
   animation: subtle-pulse 8s ease-in-out infinite alternate;
 }
 
-/* Elegant background for dark mode */
 .elegant-bg-dark {
   background: linear-gradient(135deg,
     hsl(240, 10%, 6%) 0%,
@@ -104,7 +102,6 @@
   100% { opacity: 0.6; }
 }
 
-/* Refined glassmorphism effect for light mode */
 .refined-glass-light {
   background: linear-gradient(135deg,
     rgba(255, 255, 255, 0.7) 0%,
@@ -119,7 +116,6 @@
     inset 0 1px 0 0 rgba(255, 255, 255, 0.4);
 }
 
-/* Refined glassmorphism effect for dark mode */
 .refined-glass-dark {
   background: linear-gradient(135deg,
     rgba(30, 30, 40, 0.8) 0%,
