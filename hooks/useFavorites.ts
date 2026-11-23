@@ -8,9 +8,9 @@ export function useFavorites() {
   const [favorites, setFavorites] = useState<Quote[]>([])
   const [isLoaded, setIsLoaded] = useState(false)
 
-  // Load favorites from localStorage on mount. Deferring to a macrotask keeps
-  // the setState calls out of the synchronous effect body while still reading
-  // localStorage post-mount (avoiding an SSR hydration mismatch).
+  // WHY: deferring the localStorage read to a macrotask keeps the setState calls
+  // out of the synchronous effect body while still reading post-mount, which
+  // avoids an SSR hydration mismatch.
   useEffect(() => {
     const load = setTimeout(() => {
       try {
@@ -28,7 +28,6 @@ export function useFavorites() {
     return () => clearTimeout(load)
   }, [])
 
-  // Save favorites to localStorage whenever they change
   useEffect(() => {
     if (isLoaded) {
       try {

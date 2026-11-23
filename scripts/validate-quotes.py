@@ -33,7 +33,6 @@ def validate(quotes, fix_ids=False):
     for i, entry in enumerate(quotes):
         prefix = f"Entry {i}"
 
-        # Structure checks
         if not isinstance(entry, dict):
             errors.append(f"{prefix}: not an object")
             continue
@@ -58,7 +57,6 @@ def validate(quotes, fix_ids=False):
         if "author" not in entry or not isinstance(entry.get("author"), str) or not entry["author"].strip():
             errors.append(f"{prefix}: missing or empty 'author'")
 
-    # Check sequential IDs
     expected_ids = set(range(1, len(quotes) + 1))
     if ids_seen and ids_seen != expected_ids:
         if fix_ids:

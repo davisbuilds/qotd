@@ -18,8 +18,6 @@ import RefreshButton from "../components/RefreshButton";
 
 const mockedUseTheme = vi.mocked(useTheme);
 
-// next-themes' UseThemeProps requires `themes`; the app never overrides
-// next-themes' default list, so mocks mirror that default here.
 function mockTheme(theme: "dark" | "light") {
   mockedUseTheme.mockReturnValue({ theme, themes: ["light", "dark"], setTheme: vi.fn() });
 }
